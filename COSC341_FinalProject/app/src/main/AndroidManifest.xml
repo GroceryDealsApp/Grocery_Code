@@ -34,13 +34,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".FavItemSearch"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".FavouriteItem"
             android:exported="false">
             <meta-data
@@ -77,13 +70,6 @@
         </activity>
         <activity
             android:name=".StoreComparison"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ItemSearch"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
