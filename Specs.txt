@@ -3,18 +3,18 @@
 *Hardcode distances/times of stores
 *Value is Price divided by Weight
 *All weights in grams
-*Make items in Item.txt
+*Make items in Item.txt - Beck
 
 ---
 
-Home Activity
+Home Activity - Adam
 *Toast of Welcome to Grocery Deals App
 *App Logo - Beck
 *Three buttons at bottom: Add cart, saved, carts, user settings
 *new cart button -> takes to cart activity
 *saved cart button -> takes to saved cart activity
 *user settings button -> user settings activity
-New Cart Activity:
+New Cart Activity
 *search bar
 *When they add an item, it shows up on the screen
 *Increase and decrease amount
@@ -39,7 +39,7 @@ Save cart? fragment
 *No button which does not save cart and takes back to home screen
 *Yes button which saves cart and takes back to home screen
 Replace Item Screen
-*Lists hardcoded(?) replacement items
+*List replacement items - same base and same store
 *Report flag button which goes to report screen
 *Match weight close to ____ (no need to kg or g)
 *Brand must be
