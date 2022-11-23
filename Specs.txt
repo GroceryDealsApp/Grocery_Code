@@ -7,14 +7,14 @@
 
 ---
 
-Home Activity - Adam
+Activity Home - Adam
 *Toast of Welcome to Grocery Deals App
 *App Logo - Beck
 *Three buttons at bottom: Add cart, saved, carts, user settings
 *new cart button -> takes to cart activity
 *saved cart button -> takes to saved cart activity
 *user settings button -> user settings activity
-New Cart Activity - Adam
+New Cart - Adam
 *search bar
 *When they add an item, it shows up on the screen
 *Increase and decrease amount
@@ -22,14 +22,15 @@ New Cart Activity - Adam
 *Match quantity checkbox
 *Save for later button
 *Confirm button
-Store Comparison Screen - Kyra
-*Buttons for different map locations
+Store Comparison - Kyra 
+*Buttons for different map locations - Shreya help
 *transportation button
 *sort by value
 *eta blank minutes to blank minutes
-Map Activity - Shreya
+Maps Activity - Shreya
 *map
-Calculated Cart Screen - Kyra
+*different locations for each store
+Calculated Cart - Kyra
 *name of store
 *items
 *swap button that goes to replace item screen
@@ -38,13 +39,12 @@ Save cart? fragment - Kyra
 *Cancel button that goes back to calculated cart screen
 *No button which does not save cart and takes back to home screen
 *Yes button which saves cart and takes back to home screen
-Replace Item Screen - Manjot
+Replace Item - Beck
 *List replacement items - same base and same store
 *Report flag button which goes to report screen
-*Match weight close to ____ (no need to kg or g)
-*Brand must be
-*different locations for each store
-Report Screen - Beck
+*Match weight close to (insert weight, default is any)
+*Brand must be (insert brand, default is any)
+Report Item - Beck
 *Shows item
 *Item out of stock checkbox
 *Price is incorrect checkbox
@@ -56,6 +56,11 @@ User Settings - Beck
 Fav Item Screen - Manjot
 *Search bar
 *When they add an item, it shows up on the screen
+Favourite Item Notification - Manjot
+*Title: Adjust Favourite Item Notifications
+*Notifications for Price Drop Checkbox
+*Notifcations for Extra Points Checkbox
+*Notifications for Sale Checkbox
 Saved Cart Screen - Shreya
 *List of carts
 *Has date they were saved (optional)
