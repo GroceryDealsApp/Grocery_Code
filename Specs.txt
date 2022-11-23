@@ -1,7 +1,7 @@
 *Hard code list of items, and items that have a substitue
 *All items don't have a substitute
 *Hardcode distances/times of stores
-*Value is Price divided by Weight
+*Value is Price divided by (Weight/100)
 *All weights in grams
 *Make items in Item.txt - Beck
 
@@ -14,7 +14,7 @@ Home Activity - Adam
 *new cart button -> takes to cart activity
 *saved cart button -> takes to saved cart activity
 *user settings button -> user settings activity
-New Cart Activity
+New Cart Activity - Adam
 *search bar
 *When they add an item, it shows up on the screen
 *Increase and decrease amount
@@ -44,19 +44,19 @@ Replace Item Screen
 *Match weight close to ____ (no need to kg or g)
 *Brand must be
 *different locations for each store
-Report Screen
+Report Screen - Beck
 *Shows item
 *Item out of stock checkbox
 *Price is incorrect checkbox
 *Cancel button goes back to replace item screen
 *Confirm button, toast message, send back replace item screen
-User Settings
+User Settings - Beck
 *Favourite Items button
 *Fav items notifications settings
-Fav Item Screen
+Fav Item Screen - Beck
 *Search bar
 *When they add an item, it shows up on the screen
-Saved Cart Screen
+Saved Cart Screen - Shreya
 *List of carts
 *Has date they were saved (optional)
 *Displays items chosen, can be handled inside activity
