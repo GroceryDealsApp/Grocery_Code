@@ -1,1 +1,1 @@
-Product Name,Price,Weight,Value,Store
+Brand Name,Base Item,Price,Weight,Value,Store,File Name
