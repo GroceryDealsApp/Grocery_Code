@@ -22,23 +22,23 @@ New Cart Activity - Adam
 *Match quantity checkbox
 *Save for later button
 *Confirm button
-Store Comparison Screen
+Store Comparison Screen - Kyra
 *Buttons for different map locations
 *transportation button
 *sort by value
 *eta blank minutes to blank minutes
 Map Activity - Shreya
 *map
-Calculated Cart Screen
+Calculated Cart Screen - Kyra
 *name of store
 *items
 *swap button that goes to replace item screen
 *done button which opens up would you like to save cart fragment
-Save cart? fragment
+Save cart? fragment - Kyra
 *Cancel button that goes back to calculated cart screen
 *No button which does not save cart and takes back to home screen
 *Yes button which saves cart and takes back to home screen
-Replace Item Screen
+Replace Item Screen - Manjot
 *List replacement items - same base and same store
 *Report flag button which goes to report screen
 *Match weight close to ____ (no need to kg or g)
@@ -53,7 +53,7 @@ Report Screen - Beck
 User Settings - Beck
 *Favourite Items button
 *Fav items notifications settings
-Fav Item Screen - Beck
+Fav Item Screen - Manjot
 *Search bar
 *When they add an item, it shows up on the screen
 Saved Cart Screen - Shreya
