@@ -1,0 +1,64 @@
+*Hard code list of items, and items that have a substitue
+*All items don't have a substitute
+*Hardcode distances/times of stores
+*Value is Price divided by Weight
+*All weights in grams
+*Make items in Item.txt
+
+---
+
+Home Activity
+*Toast of Welcome to Grocery Deals App
+*App Logo - Beck
+*Three buttons at bottom: Add cart, saved, carts, user settings
+*new cart button -> takes to cart activity
+*saved cart button -> takes to saved cart activity
+*user settings button -> user settings activity
+New Cart Activity:
+*search bar
+*When they add an item, it shows up on the screen
+*Increase and decrease amount
+*Match brand checkbox
+*Match quantity checkbox
+*Save for later button
+*Confirm button
+Store Comparison Screen
+*Buttons for different map locations
+*transportation button
+*sort by value
+*eta blank minutes to blank minutes
+Map Activity - Shreya
+*map
+Calculated Cart Screen
+*name of store
+*items
+*swap button that goes to replace item screen
+*done button which opens up would you like to save cart fragment
+Save cart? fragment
+*Cancel button that goes back to calculated cart screen
+*No button which does not save cart and takes back to home screen
+*Yes button which saves cart and takes back to home screen
+Replace Item Screen
+*Lists hardcoded(?) replacement items
+*Report flag button which goes to report screen
+*Match weight close to ____ (no need to kg or g)
+*Brand must be
+*different locations for each store
+Report Screen
+*Shows item
+*Item out of stock checkbox
+*Price is incorrect checkbox
+*Cancel button goes back to replace item screen
+*Confirm button, toast message, send back replace item screen
+User Settings
+*Favourite Items button
+*Fav items notifications settings
+Fav Item Screen
+*Search bar
+*When they add an item, it shows up on the screen
+Saved Cart Screen
+*List of carts
+*Has date they were saved (optional)
+*Displays items chosen, can be handled inside activity
+*Edit button which changes name of cart
+*Delete button?
