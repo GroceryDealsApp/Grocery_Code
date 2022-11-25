@@ -1,2 +1,0 @@
-Brand Name,Base Item,Price,Weight,Value,Store,File Name
-SuperCool,White Rice,20.49,14000,
