@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -13,9 +14,10 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class StoreComparison extends AppCompatActivity {
+public class StoreComparison extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static Integer[] imageIconDatabase = {R.drawable.walk, R.drawable.bike, R.drawable.bus, R.drawable.car};
     private String[] imageNameDatabase = {"walk", "bike", "bus", "car"};
+
 
 
     @Override
@@ -26,6 +28,20 @@ public class StoreComparison extends AppCompatActivity {
         SimpleImageArrayAdapter adapter = new SimpleImageArrayAdapter(this, imageIconDatabase);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ImageSpinner.setAdapter(adapter);
+        Spinner SortSpinner = (Spinner) findViewById(R.id.SortSpinner);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.sort_array, android.R.layout.simple_spinner_item);
+        SortSpinner.setAdapter(adapter2);
+        SortSpinner.setOnItemSelectedListener( this);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 
     public class SimpleImageArrayAdapter extends ArrayAdapter<Integer> {
@@ -52,6 +68,8 @@ public class StoreComparison extends AppCompatActivity {
             imageView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             return imageView;
         }
+
+    } public void onHelpButton(View view){
 
     }
 }

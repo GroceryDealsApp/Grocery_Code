@@ -7,12 +7,22 @@
     android:fadeScrollbars="false"
     tools:context=".StoreComparison">
 
+    <Spinner
+        android:id="@+id/ImageSpinner"
+        android:layout_width="100dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="20dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/BackButtonComparison"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/BackButtonComparison"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
 
         android:baselineAlignBottom="false"
         android:clickable="true"
@@ -24,22 +34,83 @@
         app:maxImageSize="24dp"
         app:useCompatPadding="false" />
 
-    <Spinner
-        android:id="@+id/ImageSpinner"
-        android:layout_width="100dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="4dp"
-        android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/BackButtonComparison"
+    <TextView
+        android:id="@+id/eta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:text="eta:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ImageSpinner"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/MinTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:width="43dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0 min"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/eta"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="4dp"
+        android:text="to"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/MaxTime"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/MaxTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:width="43dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="40 min"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/SortSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="5dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/sortby"
+        app:layout_constraintTop_toBottomOf="@+id/MaxTime" />
+
+    <TextView
+        android:id="@+id/sortby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="248dp"
+        android:layout_marginTop="8dp"
+        android:text="sort by:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MinTime" />
 
     <TextView
         android:id="@+id/Transport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
         android:layout_weight="0"
         android:text="Transport:"
         android:textAlignment="textStart"
@@ -50,77 +121,348 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/eta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:text="eta:"
+    <Button
+        android:id="@+id/HelpButtonComparison"
+        android:layout_width="59dp"
+        android:layout_height="19dp"
+        android:background="#00FFFFFF"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:onClick="onHelpButton"
+        android:text="Help"
+        android:textAllCaps="false"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/ImageSpinner"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/MinTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:width="43dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="0 min"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/eta"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/MaxTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:width="43dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="40 min"
-        android:textSize="10sp"
+        android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/to"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="6dp"
-        android:text="to"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/MaxTime"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="400dp"
-        android:layout_height="39dp"
+        android:id="@+id/card_view1"
+        android:layout_width="390dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="524dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/button_border"
         app:cardBackgroundColor="#228B22"
         app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        android:background = "@drawable/button_border"
+        app:layout_constraintTop_toBottomOf="@+id/SortSpinner"
         tools:ignore="MissingClass">
 
         <TextView
-            android:id="@+id/info_text"
-            android:layout_width="196dp"
-            android:layout_height="match_parent"
-            android:textAlignment="center" />
+            android:id="@+id/StoreTitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="store1"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/MapViewButton1"
+            android:layout_width="63dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="map"
+            android:textSize="9sp"
+            app:iconPadding="0dp" />
+
+        <TextView
+            android:id="@+id/CalculatedTotal1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="30dp"
+            android:text="Calculated total ="
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/km_eta1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:text="2.4km - eta 20min"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/ValueCalculationTotal1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="270dp"
+            android:layout_marginTop="59dp"
+            android:text="Value Calculation"
+            android:textColor="#39FF14"
+            android:textSize="10sp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/NextButtonComparison1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="342dp"
+
+            android:baselineAlignBottom="false"
+            android:clickable="true"
+            android:cropToPadding="false"
+            android:src="@drawable/next_arrow"
+            app:fabSize="mini"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:maxImageSize="24dp"
+            app:useCompatPadding="false" />
+
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view2"
+        android:layout_width="390dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/button_border"
+        app:cardBackgroundColor="#228B22"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view1"
+        tools:ignore="MissingClass">
+
+        <TextView
+            android:id="@+id/StoreTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="store2"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/MapViewButton2"
+            android:layout_width="63dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="map"
+            android:textSize="9sp"
+            app:iconPadding="0dp" />
+
+        <TextView
+            android:id="@+id/CalculatedTotal2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="30dp"
+            android:text="Calculated total ="
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/km_eta2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:text="2.4km - eta 20min4km - eta 35min"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/ValueCalculationTotal2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="270dp"
+            android:layout_marginTop="59dp"
+            android:text="Value Calculation"
+            android:textColor="#39FF14"
+            android:textSize="10sp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/NextButtonComparison2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="342dp"
+
+            android:baselineAlignBottom="false"
+            android:clickable="true"
+            android:cropToPadding="false"
+            android:src="@drawable/next_arrow"
+            app:fabSize="mini"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:maxImageSize="24dp"
+            app:useCompatPadding="false" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view3"
+        android:layout_width="390dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/button_border"
+        app:cardBackgroundColor="#228B22"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view2"
+        tools:ignore="MissingClass">
+
+        <TextView
+            android:id="@+id/StoreTitle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="store3"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/MapViewButton3"
+            android:layout_width="63dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="map"
+            android:textSize="9sp"
+            app:iconPadding="0dp" />
+
+        <TextView
+            android:id="@+id/CalculatedTotal3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="30dp"
+            android:text="Calculated total ="
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/km_eta3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:text="3km - eta 25min"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/ValueCalculationTotal3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="270dp"
+            android:layout_marginTop="59dp"
+            android:text="Value Calculation"
+            android:textColor="#39FF14"
+            android:textSize="10sp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/NextButtonComparison3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="342dp"
+
+            android:baselineAlignBottom="false"
+            android:clickable="true"
+            android:cropToPadding="false"
+            android:src="@drawable/next_arrow"
+            app:fabSize="mini"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:maxImageSize="24dp"
+            app:useCompatPadding="false" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view4"
+        android:layout_width="390dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/button_border"
+        app:cardBackgroundColor="#228B22"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view3"
+        tools:ignore="MissingClass">
+
+        <TextView
+            android:id="@+id/StoreTitle4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="store4"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/MapViewButton4"
+            android:layout_width="63dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="map"
+            android:textSize="9sp"
+            app:iconPadding="0dp" />
+
+        <TextView
+            android:id="@+id/CalculatedTotal4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="30dp"
+            android:text="Calculated total ="
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/km_eta4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:text="4.5km - eta 38min"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/ValueCalculationTotal4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="270dp"
+            android:layout_marginTop="59dp"
+            android:text="Value Calculation"
+            android:textColor="#39FF14"
+            android:textSize="10sp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/NextButtonComparison4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="342dp"
+
+            android:baselineAlignBottom="false"
+            android:clickable="true"
+            android:cropToPadding="false"
+            android:src="@drawable/next_arrow"
+            app:fabSize="mini"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:maxImageSize="24dp"
+            app:useCompatPadding="false" />
+
+    </androidx.cardview.widget.CardView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
