@@ -16,8 +16,9 @@ import android.view.ViewGroup;
 
 public class StoreComparison extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static Integer[] imageIconDatabase = {R.drawable.walk, R.drawable.bike, R.drawable.bus, R.drawable.car};
-    private String[] imageNameDatabase = {"walk", "bike", "bus", "car"};
-
+    //private String[] imageNameDatabase = {"walk", "bike", "bus", "car"};
+    String storeNames[];
+    String storename;
 
 
     @Override

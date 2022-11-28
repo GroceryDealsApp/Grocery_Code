@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalculatedCart">
+    android:orientation="vertical"
+    tools:context=".CalculatedCart"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/butAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add New Card"
+        />
+
+    <Button
+        android:id="@+id/butDoSth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Do something"
+        />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/cards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <include
+            android:id="@+id/includedLayoutFirst"
+            layout="@layout/card_base"
+            />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
