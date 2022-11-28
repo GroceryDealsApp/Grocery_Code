@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f64c46d2-7f89-4346-9e70-dcec6a4963ad" name="Changes" comment="" />
+    <list default="true" id="f64c46d2-7f89-4346-9e70-dcec6a4963ad" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/COSC341_FinalProject/app/src/main/java/com/example/cosc341_finalproject/BlankFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/COSC341_FinalProject/app/src/main/java/com/example/cosc341_finalproject/BlankViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/COSC341_FinalProject/app/src/main/java/com/example/cosc341_finalproject/SaveCartQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/COSC341_FinalProject/app/src/main/res/layout/fragment_blank.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/COSC341_FinalProject/app/src/main/res/layout/fragment_save_cart_question.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Grocery_Code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Grocery_Code.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COSC341_FinalProject/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/COSC341_FinalProject/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COSC341_FinalProject/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/COSC341_FinalProject/app/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
