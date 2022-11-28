@@ -69,8 +69,39 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
             return imageView;
         }
 
-    } public void onHelpButton(View view){
+    }
+    public void onHelpButton(View view){
 
     }
+    public void onBackCompClick(View view){
+        finish();
+
+    }
+    public void onMap1Click(View view){
+
+    }
+    public void onMap2Click(View view){
+
+    }
+    public void onMap3Click(View view){
+
+    }
+    public void onMap4Click(View view){
+
+    }
+    public void onNext1Click(View view){
+
+    }
+    public void onNext2Click(View view){
+
+    }
+    public void onNext3Click(View view){
+
+    }
+    public void onNext4Click(View view){
+
+    }
+
+
 }
 
