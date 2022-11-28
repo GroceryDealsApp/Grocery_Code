@@ -5,34 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CalculatedCart"
-    >
+    android:visibility="visible"
+    tools:context=".CalculatedCart">
 
     <Button
-        android:id="@+id/butAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add New Card"
-        />
+        android:id="@+id/HelpButtonComparison"
+        android:layout_width="59dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="350dp"
+        android:background="#00FFFFFF"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:onClick="onHelpButton"
+        android:text="Help"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="8sp" />
 
-    <Button
-        android:id="@+id/butDoSth"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/StoreNameCalc"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Do something"
-        />
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Store Name"
+        android:textAlignment="textEnd"
+        android:textColor="#000000"
+        android:textSize="30sp" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/cards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <include
             android:id="@+id/includedLayoutFirst"
             layout="@layout/card_base"
-            />
+            android:visibility="gone" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
