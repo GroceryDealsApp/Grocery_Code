@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">COSC341_FinalProject</string>
+    <string-array name="sort_array">
+        <item>value</item>
+        <item>eta</item>
+        <item>cost</item>
+    </string-array>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

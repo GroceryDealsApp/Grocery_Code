@@ -6,26 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".ReplaceItem">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="78dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="<-"
-        android:textSize="34sp"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/BackButtonReplace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+
+        android:baselineAlignBottom="false"
+        android:clickable="true"
+        android:cropToPadding="false"
+        android:src="@drawable/back_arrow"
+        app:fabSize="mini"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="24dp"
+        app:useCompatPadding="false" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="112dp"
         android:text="Match weight close to:"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -50,6 +56,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="8dp"
         android:text="KG"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
@@ -65,7 +73,7 @@
         android:text="Brand:"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
@@ -150,4 +158,5 @@
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.448" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout
+>
