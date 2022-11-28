@@ -102,21 +102,23 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="388dp"
-        android:layout_height="457dp"
+        android:layout_width="400dp"
+        android:layout_height="39dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="135dp"
+        android:layout_marginBottom="524dp"
+        app:cardBackgroundColor="#228B22"
         app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background = "@drawable/button_border"
+        tools:ignore="MissingClass">
 
         <TextView
             android:id="@+id/info_text"
-            android:layout_width="match_parent"
+            android:layout_width="196dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="200dp"
-            android:layout_marginBottom="200dp"
             android:textAlignment="center" />
     </androidx.cardview.widget.CardView>
 

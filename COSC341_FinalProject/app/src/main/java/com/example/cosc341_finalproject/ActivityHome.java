@@ -11,8 +11,8 @@ public class ActivityHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Intent intent = new Intent(this, StoreComparison.class);
-        startActivity(intent);
+      //  Intent intent = new Intent(this, StoreComparison.class);
+      //  startActivity(intent);
 
     }
 

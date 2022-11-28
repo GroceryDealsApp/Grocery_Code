@@ -6,18 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".ReplaceItem">
 
-    <ImageButton
-        android:id="@+id/BackButton"
-        android:layout_width="0dp"
-        android:layout_height="62dp"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/BackButtonReplace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
 
-        android:layout_marginEnd="31dp"
-        android:background="@drawable/button_border"
-        android:onClick="onBackClick"
+        android:baselineAlignBottom="false"
+        android:clickable="true"
+        android:cropToPadding="false"
         android:src="@drawable/back_arrow"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:fabSize="mini"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="24dp"
+        app:useCompatPadding="false" />
 
     <TextView
         android:id="@+id/textView3"
@@ -27,8 +31,7 @@
         android:text="Match weight close to:"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/BackButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -53,15 +56,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_marginStart="31dp"
         android:layout_marginTop="8dp"
-
-        android:text="Brand must be:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/BackButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-=======
         android:text="KG"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
@@ -77,7 +73,7 @@
         android:text="Brand:"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
@@ -162,5 +158,5 @@
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.448" />
 
->>>>>>> 9a9ad240a75750772e3a2b8e20d6e59841fa1c15
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout
+>
