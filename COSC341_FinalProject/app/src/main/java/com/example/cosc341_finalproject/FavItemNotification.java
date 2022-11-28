@@ -12,10 +12,10 @@ public class FavItemNotification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        final Button done = findViewById(R.id.done);
-        done.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                finish();}});
+       // final Button done = findViewById(R.id.done);
+      //  done.setOnClickListener(new View.OnClickListener(){
+        //    public void onClick(View v){
+          //      finish();}});
 
     }
 }
