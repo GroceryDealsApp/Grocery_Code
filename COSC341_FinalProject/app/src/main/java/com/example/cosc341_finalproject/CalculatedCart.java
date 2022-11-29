@@ -5,10 +5,12 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CalculatedCart extends AppCompatActivity {
@@ -21,18 +23,6 @@ public class CalculatedCart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculated_cart);
-        Global.items.add("Foodie White Rice");
-        Global.items.add("Foodie Bacon");
-        Global.items.add("Foodie Bacon");
-        Global.items.add("Foodie Bacon");
-        Global.items.add("Foodie Bacon");
-        Global.items.add("Foodie Bacon");
-        Global.items.add("Foodie Bacon");
-        Global.items.add("Foodie Bacon");
-        Global.items.add("Foodie Bacon");
-        Global.items.add("Foodie White Rice");
-
-
 
         buttonSwap = findViewById(R.id.SwapButton1);
 
@@ -50,8 +40,24 @@ public class CalculatedCart extends AppCompatActivity {
         for (int i = 0; i < total; i++) {
             CardView newCard = new CardView(CalculatedCart.this);
             getLayoutInflater().inflate(R.layout.card_base, newCard);
-            TextView t = newCard.findViewById(R.id.Item1);
-            t.setText(Global.items.get(i));
+
+            TextView itemName = newCard.findViewById(R.id.Item1);
+            TextView weight = newCard.findViewById(R.id.Weight1);
+            TextView value = newCard.findViewById(R.id.Value1);
+            TextView price = newCard.findViewById(R.id.Price1);
+            ImageView v = newCard.findViewById(R.id.itemImage1);
+
+            Product p = Global.products.get(i);
+
+            String imageName = p.getFileNameWithoutExtension();
+            int resID = getResources().getIdentifier(imageName, "drawable", getPackageName());
+            v.setImageResource(resID);
+
+            itemName.setText(p.getFullName());
+            weight.setText(p.getFormattedWeight());
+            value.setText(p.getFormattedValue());
+            price.setText(p.getFormattedPrice());
+
             newCard.setTag(i);
             cards.addView(newCard);
 
