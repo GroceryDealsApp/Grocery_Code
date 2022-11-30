@@ -66,14 +66,14 @@ public class NewCart extends AppCompatActivity {
             cards = findViewById(R.id.cards);
             for (int i = 0; i < total; i++) {
                 CardView newCard = new CardView(NewCart.this);
-                getLayoutInflater().inflate(R.layout.card_comparison, newCard);
+                getLayoutInflater().inflate(R.layout.card_newcard, newCard);
 
                 TextView itemName = newCard.findViewById(R.id.Item1);
                 TextView weight = newCard.findViewById(R.id.Weight1);
                 TextView value = newCard.findViewById(R.id.Value1);
                 TextView price = newCard.findViewById(R.id.Price1);
                 ImageView v = newCard.findViewById(R.id.itemImage1);
-                Button addButtonNew = newCard.findViewById(R.id.addButtonNew);
+                //Button addButtonNew = newCard.findViewById(R.id.addButtonNew);
 
                 Product p = prods.get(i);
 
