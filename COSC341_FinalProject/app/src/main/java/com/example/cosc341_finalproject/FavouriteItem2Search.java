@@ -22,6 +22,7 @@ public class FavouriteItem2Search extends AppCompatActivity {
 
     LinearLayoutCompat cards;
     String fullname = "";
+    Boolean first = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class FavouriteItem2Search extends AppCompatActivity {
 
 
         cards = findViewById(R.id.cards);
-        updateCards();
+        //updateCards();
 
     }
 
@@ -62,8 +63,12 @@ public class FavouriteItem2Search extends AppCompatActivity {
         if(fullname.length() > 1){
             prods = Product.getProductsByFullName(fullname,prods);
         }
-
-        clearCards();
+        if(first){
+            first = false;
+        }
+        else {
+            clearCards();
+        }
 
         int total = prods.size();
         cards = findViewById(R.id.cards);
