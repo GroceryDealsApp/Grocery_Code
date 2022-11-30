@@ -97,11 +97,11 @@ public class FavouriteItemv22 extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-        // check if the request code is same as what is passed  here it is 2
-        if(requestCode==2)
-        {
-            //do the things u wanted
-            updateFavCards();
+        // check if the request code is same as what is passed  here it is 1
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK) {
+                updateFavCards();
+            }
         }
     }
 
@@ -111,6 +111,6 @@ public class FavouriteItemv22 extends AppCompatActivity {
 
     public void onAddNewFav(View view) {
         Intent intent = new Intent(this, FavouriteItem2Search.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
     }
 }

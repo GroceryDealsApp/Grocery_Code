@@ -91,7 +91,9 @@ public class FavouriteItem2Search extends AppCompatActivity {
             addButt.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Global.faves.add(itemName.getText().toString());
-
+                    Intent intent = new Intent();
+                    //intent.putExtra("editTextValue", "value_here"); for sending data back, though i just wanna cal the method to update the list of items
+                    setResult(RESULT_OK, intent);
                     finish();
                 }
             });
@@ -101,6 +103,7 @@ public class FavouriteItem2Search extends AppCompatActivity {
 
         }
     }
+
 /*
     public void onAddFav(View view) {
         String itemName = view.getParent().//.findViewById(R.id.Item1).toString();
