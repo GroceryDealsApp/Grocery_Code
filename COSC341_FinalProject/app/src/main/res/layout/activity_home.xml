@@ -9,18 +9,19 @@
     <ImageButton
         android:id="@+id/buttonNewCart"
         android:layout_width="0dp"
-        app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".333"
         android:layout_height="94dp"
+        android:backgroundTint="#4CAF50"
+        android:onClick="pressNewCart"
         android:scaleType="fitXY"
         android:src="@drawable/create_cart"
-        android:backgroundTint="#4CAF50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSavedCarts"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".333" />
 
 
     <ImageButton
@@ -28,6 +29,7 @@
         android:layout_width="0dp"
         android:layout_height="94dp"
         android:backgroundTint="#4CAF50"
+        android:onClick="pressSavedCarts"
         android:scaleType="fitXY"
         android:src="@drawable/saved_carts"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,16 +42,17 @@
     <ImageButton
         android:id="@+id/buttonUser"
         android:layout_width="0dp"
-        app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".333"
-        android:backgroundTint="#4CAF50"
         android:layout_height="94dp"
+        android:backgroundTint="#4CAF50"
+        android:onClick="pressUserSettings"
         android:scaleType="fitXY"
         android:src="@drawable/user"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".333" />
 
     <TextView
         android:id="@+id/textView"

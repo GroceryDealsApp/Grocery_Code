@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -59,4 +60,16 @@ public class ActivityHome extends AppCompatActivity {
         }
     }
 
+    public void pressNewCart(View view) {
+        Intent intent = new Intent(this, NewCart.class);
+        startActivity(intent);
+    }
+    public void pressSavedCarts(View view) {
+        Intent intent = new Intent(this, SavedCarts.class);
+        startActivity(intent);
+    }
+    public void pressUserSettings(View view) {
+        Intent intent = new Intent(this, UserSettings.class);
+        startActivity(intent);
+    }
 }
