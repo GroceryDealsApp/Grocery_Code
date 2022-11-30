@@ -25,8 +25,8 @@ public class ActivityHome extends AppCompatActivity {
             loadData();
             Global.firstRun = true;
         }
-       // Intent intent = new Intent(this, NewCart.class);
-       // startActivity(intent);
+       Intent intent = new Intent(this, FavouriteItemv22.class);
+        startActivity(intent);
         //ImageButton btn = (ImageButton) findViewById(R.id.buttonNewCart);
         //int width = getResources().getDisplayMetrics().widthPixels/3;
         //btn.setLayoutParams(new RelativeLayout.LayoutParams(width, height));

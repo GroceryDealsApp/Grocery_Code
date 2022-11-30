@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import java.util.List;
 
 public class NewCart extends AppCompatActivity {
     String baseItem = "";
+    TextView itemName;
     LinearLayoutCompat cards;
     //boolean first = true;
     String item = "";
@@ -71,11 +73,12 @@ public class NewCart extends AppCompatActivity {
                 CardView newCard = new CardView(NewCart.this);
                 getLayoutInflater().inflate(R.layout.card_base2, newCard);
 
-                TextView itemName = newCard.findViewById(R.id.Item1);
+                 itemName = newCard.findViewById(R.id.Item1);
                 TextView weight = newCard.findViewById(R.id.Weight1);
                 TextView value = newCard.findViewById(R.id.Value1);
                 TextView price = newCard.findViewById(R.id.Price1);
                 ImageView v = newCard.findViewById(R.id.itemImage1);
+                Button addButt = newCard.findViewById(R.id.AddFavButton);
 
                 Product p = prods.get(i);
 
@@ -87,6 +90,13 @@ public class NewCart extends AppCompatActivity {
                 weight.setText(p.getFormattedWeight());
                 value.setText(p.getFormattedValue());
                 price.setText(p.getFormattedPrice());
+                addButt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Global.items.add(itemName.getText().toString());
+                        finish();
+                    }
+                });
 
                 newCard.setTag(i);
                 cards.addView(newCard);
