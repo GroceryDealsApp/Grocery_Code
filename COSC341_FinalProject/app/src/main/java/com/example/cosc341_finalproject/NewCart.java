@@ -16,7 +16,7 @@ import java.util.List;
 
 public class NewCart extends AppCompatActivity {
     String baseItem = "";
-    TextView itemName;
+    //TextView itemName;
     LinearLayoutCompat cards;
     //boolean first = true;
     // String item = "";
@@ -68,12 +68,12 @@ public class NewCart extends AppCompatActivity {
                 CardView newCard = new CardView(NewCart.this);
                 getLayoutInflater().inflate(R.layout.card_comparison, newCard);
 
-                itemName = newCard.findViewById(R.id.Item1);
+                TextView itemName = newCard.findViewById(R.id.Item1);
                 TextView weight = newCard.findViewById(R.id.Weight1);
                 TextView value = newCard.findViewById(R.id.Value1);
                 TextView price = newCard.findViewById(R.id.Price1);
                 ImageView v = newCard.findViewById(R.id.itemImage1);
-                //  Button addButtonNew = newCard.findViewById(R.id.addButtonNew);
+                Button addButtonNew = newCard.findViewById(R.id.addButtonNew);
 
                 Product p = prods.get(i);
 
@@ -169,7 +169,7 @@ public class NewCart extends AppCompatActivity {
                 cards.addView(newCard);
 
             }
-        }
+        }*/
 
         public void onBackNewClick (View view){
             finish();
@@ -184,7 +184,7 @@ public class NewCart extends AppCompatActivity {
             }
         }
 
-    }*/
+    }
         public void onAddNewItem(View view) {
             Intent intent = new Intent(this, NewCartSearch.class);
             startActivityForResult(intent, 1);
