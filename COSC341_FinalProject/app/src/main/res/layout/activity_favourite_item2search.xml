@@ -54,8 +54,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/favouriteItemSearch"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favouriteItemSearch">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/cards"

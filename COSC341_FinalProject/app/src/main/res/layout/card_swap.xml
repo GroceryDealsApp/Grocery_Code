@@ -68,7 +68,7 @@
             android:textColor="#FFFFFF" />
 
         <Button
-            android:id="@+id/AddFavButton"
+            android:id="@+id/SwapButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="295dp"
@@ -76,6 +76,16 @@
             android:backgroundTintMode="add"
             android:text="Swap"
             app:cornerRadius="10dp" />
+
+        <ImageButton
+            android:id="@+id/FlagButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="330dp"
+            android:layout_marginTop="45dp"
+            android:background="@android:color/transparent"
+            android:backgroundTint="#422929"
+            app:srcCompat="@drawable/red_flag" />
 
 
     </RelativeLayout>
