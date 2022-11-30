@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,7 +27,9 @@ public class ActivityHome extends AppCompatActivity {
         }
         Intent intent = new Intent(this, NewCart.class);
         startActivity(intent);
-
+        //ImageButton btn = (ImageButton) findViewById(R.id.buttonNewCart);
+        //int width = getResources().getDisplayMetrics().widthPixels/3;
+        //btn.setLayoutParams(new RelativeLayout.LayoutParams(width, height));
     }
 
     //loads data from Items.csv into Global.products
@@ -54,4 +60,16 @@ public class ActivityHome extends AppCompatActivity {
         }
     }
 
+    public void pressNewCart(View view) {
+        Intent intent = new Intent(this, NewCart.class);
+        startActivity(intent);
+    }
+    public void pressSavedCarts(View view) {
+        Intent intent = new Intent(this, SavedCarts.class);
+        startActivity(intent);
+    }
+    public void pressUserSettings(View view) {
+        Intent intent = new Intent(this, UserSettings.class);
+        startActivity(intent);
+    }
 }

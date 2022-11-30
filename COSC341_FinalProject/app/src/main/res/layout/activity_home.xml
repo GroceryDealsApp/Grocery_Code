@@ -7,54 +7,70 @@
     tools:context=".ActivityHome">
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="136dp"
+        android:id="@+id/buttonNewCart"
+        android:layout_width="0dp"
         android:layout_height="94dp"
+        android:backgroundTint="#4CAF50"
+        android:onClick="pressNewCart"
         android:scaleType="fitXY"
         android:src="@drawable/create_cart"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSavedCarts"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".333" />
+
 
     <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="138dp"
-        android:layout_height="93dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/buttonSavedCarts"
+        android:layout_width="0dp"
+        android:layout_height="94dp"
+        android:backgroundTint="#4CAF50"
+        android:onClick="pressSavedCarts"
         android:scaleType="fitXY"
         android:src="@drawable/saved_carts"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintEnd_toStartOf="@+id/buttonUser"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".333" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="113dp"
+        android:id="@+id/buttonUser"
+        android:layout_width="0dp"
         android:layout_height="94dp"
+        android:backgroundTint="#4CAF50"
+        android:onClick="pressUserSettings"
         android:scaleType="fitXY"
         android:src="@drawable/user"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".333" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="10dp"
         android:text="Recently Made Carts"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="10dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="25dp"
         android:text="Help"
-        tools:layout_editor_absoluteX="357dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
