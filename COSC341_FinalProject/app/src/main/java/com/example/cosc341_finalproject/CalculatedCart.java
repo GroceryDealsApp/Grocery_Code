@@ -3,9 +3,13 @@ package com.example.cosc341_finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +23,7 @@ import java.util.List;
 public class CalculatedCart extends AppCompatActivity {
     private int starter = 66; //ASCII code for `B`
     LinearLayoutCompat cards;
-    Button buttonSwap;
+    Button DoneButton;
     private int total;
     double totalPrice = 0;
     TextView TotalCalc;
@@ -63,6 +67,23 @@ public class CalculatedCart extends AppCompatActivity {
         }
         String pp = "Grand total: " + Double.toString(totalPrice);
         TotalCalc.setText(pp);
+         DoneButton = findViewById(R.id.DoneButton);
+         DoneButton.setVisibility(View.VISIBLE);
+       DoneButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               FragmentManager fragmentManager = getSupportFragmentManager();
+               fragmentManager.beginTransaction()
+                       .replace(R.id.fragmentContainerView2, SaveCartQuestion.class, null)
+                       .setReorderingAllowed(true)
+                       .addToBackStack("name")
+                       .commit();
+
+
+               DoneButton.setVisibility(View.GONE);
+
+           }
+       });
 
 
     }
@@ -70,9 +91,9 @@ public class CalculatedCart extends AppCompatActivity {
 
 
 
-public void onDoneClick(View view){
-       // Intent intent = new Intent(SaveCartQuestion.class);
-}
+
+
+
 
 }
 

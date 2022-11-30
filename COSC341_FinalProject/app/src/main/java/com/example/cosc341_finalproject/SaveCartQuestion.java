@@ -1,10 +1,14 @@
 package com.example.cosc341_finalproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,6 +62,41 @@ public class SaveCartQuestion extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_save_cart_question, container, false);
-    }
-}
+
+        View v = inflater.inflate(R.layout.fragment_save_cart_question, container, false);
+        Button CancelBut = (Button) v.findViewById(R.id.CancelBut);
+        Button NoBut = (Button) v.findViewById(R.id.NoBut);
+        Button YesBut = (Button) v.findViewById(R.id.YesBut);
+        CancelBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CalculatedCart.class);
+                startActivity(intent);
+            }
+
+
+            });
+        NoBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+               Intent intent = new Intent(getActivity(), ActivityHome.class);
+               startActivity(intent);
+            }
+
+
+        });
+        YesBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ActivityHome.class);
+                startActivity(intent);
+            }
+
+
+        });
+        return v;
+
+    }}
+
+
