@@ -13,12 +13,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewCart extends AppCompatActivity {
     String baseItem = "";
     LinearLayoutCompat cards;
     //boolean first = true;
+    String item = "";
+
 
 
     @Override
@@ -48,6 +51,7 @@ public class NewCart extends AppCompatActivity {
             // updateCards();
         }
 
+
         public void clearCards () {
             int count = cards.getChildCount();
             View v = null;
@@ -59,7 +63,7 @@ public class NewCart extends AppCompatActivity {
 
         public void updateCards () {
             List<Product> prods = Product.getProductsByBaseItem(baseItem);
-
+            clearCards();
 
             int total = prods.size();
             cards = findViewById(R.id.cards);
@@ -133,6 +137,8 @@ public class NewCart extends AppCompatActivity {
             cards = findViewById(R.id.cards);
             for (int i = 0; i < total; i++) {
                 CardView newCard = new CardView(NewCart.this);
+                final int finalI = i;
+
                 getLayoutInflater().inflate(R.layout.card_base2, newCard);
 
                 TextView itemName = newCard.findViewById(R.id.Item1);
@@ -148,14 +154,24 @@ public class NewCart extends AppCompatActivity {
                 v.setImageResource(resID);
 
                 itemName.setText(p.getFullName());
+                item = p.getFullName();
                 weight.setText(p.getFormattedWeight());
                 value.setText(p.getFormattedValue());
                 price.setText(p.getFormattedPrice());
 
+
                 newCard.setTag(i);
                 cards.addView(newCard);
+                newCard.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    Global.items.add(item);
+                    }
+                });
+
             }
         }
+
         public void onBackNewClick (View view){
             finish();
         }
@@ -163,7 +179,8 @@ public class NewCart extends AppCompatActivity {
        //     System.out.println(view.getTag());
         //    cards.getChildAt((Integer) view.getTag());
 
+
         }
-    
+
 
 
