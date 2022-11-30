@@ -14,6 +14,7 @@
         android:layout_height="94dp"
         android:scaleType="fitXY"
         android:src="@drawable/create_cart"
+        android:backgroundTint="#4CAF50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSavedCarts"
         app:layout_constraintHorizontal_bias="0.0"
@@ -21,24 +22,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+
     <ImageButton
         android:id="@+id/buttonSavedCarts"
         android:layout_width="0dp"
-        app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".333"
         android:layout_height="94dp"
+        android:backgroundTint="#4CAF50"
         android:scaleType="fitXY"
         android:src="@drawable/saved_carts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonUser"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".333" />
 
     <ImageButton
         android:id="@+id/buttonUser"
         android:layout_width="0dp"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".333"
+        android:backgroundTint="#4CAF50"
         android:layout_height="94dp"
         android:scaleType="fitXY"
         android:src="@drawable/user"
