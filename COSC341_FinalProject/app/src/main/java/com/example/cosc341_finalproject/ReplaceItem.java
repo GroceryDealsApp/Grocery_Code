@@ -51,7 +51,7 @@ public class ReplaceItem extends AppCompatActivity {
                     try {
                         weight = Integer.parseInt(v.getText().toString());
                     } catch (Exception e){
-                        return true;
+                        weight = 0;
                     }
                     updateCards();
                     handled = true;
@@ -83,6 +83,8 @@ public class ReplaceItem extends AppCompatActivity {
         if(weight > 0){
             prods = Product.getProductCloseToWeight(weight*1000,prods);
         }
+
+
         clearCards();
 
         int total = prods.size();

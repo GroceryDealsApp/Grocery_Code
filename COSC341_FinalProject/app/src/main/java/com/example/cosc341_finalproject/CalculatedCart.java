@@ -13,42 +13,40 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import java.util.List;
+
 public class CalculatedCart extends AppCompatActivity {
     private int starter = 66; //ASCII code for `B`
     LinearLayoutCompat cards;
     Button buttonSwap;
     private int total;
+    double totalPrice = 0;
+    TextView TotalCalc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculated_cart);
-
-        buttonSwap = findViewById(R.id.SwapButton1);
-
+        List<Product> prods = Product.getProductsByBaseItem("rice");
+       // buttonSwap = findViewById(R.id.SwapButton1);
+        TotalCalc = findViewById(R.id.TotalCalc);
         cards = findViewById(R.id.cards);
-
-        buttonSwap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                findBlockAndDoSomething("Foodie White Rice");
-               // doSwap(view.getTag());
-            }
-
-        });
-        total = Global.items.size();
+        int total = prods.size();
+        cards = findViewById(R.id.cards);
         for (int i = 0; i < total; i++) {
             CardView newCard = new CardView(CalculatedCart.this);
-            getLayoutInflater().inflate(R.layout.card_base, newCard);
+            getLayoutInflater().inflate(R.layout.card_base2, newCard);
 
             TextView itemName = newCard.findViewById(R.id.Item1);
             TextView weight = newCard.findViewById(R.id.Weight1);
             TextView value = newCard.findViewById(R.id.Value1);
             TextView price = newCard.findViewById(R.id.Price1);
+
             ImageView v = newCard.findViewById(R.id.itemImage1);
 
-            Product p = Global.products.get(i);
-
+            Product p = prods.get(i);
+            totalPrice = totalPrice + p.getPrice();
             String imageName = p.getFileNameWithoutExtension();
             int resID = getResources().getIdentifier(imageName, "drawable", getPackageName());
             v.setImageResource(resID);
@@ -57,43 +55,25 @@ public class CalculatedCart extends AppCompatActivity {
             weight.setText(p.getFormattedWeight());
             value.setText(p.getFormattedValue());
             price.setText(p.getFormattedPrice());
-
             newCard.setTag(i);
             cards.addView(newCard);
 
+
+
         }
+        String pp = "Grand total: " + Double.toString(totalPrice);
+        TotalCalc.setText(pp);
 
 
     }
 
 
 
-    private void doSwap(Object tag)
-    {
-            System.out.println(tag);
-                Intent intent = new Intent(this, ReplaceItem.class);
-                startActivity(intent);
 
-        }
-    private void findBlockAndDoSomething(String name)
-    {
-        Log.d("MyTAG", "CLICK");
+public void onDoneClick(View view){
+       // Intent intent = new Intent(SaveCartQuestion.class);
+}
 
-        for (int i = 1; i < cards.getChildCount()-1; i++)
-        {
-            CardView selected = (CardView) cards.getChildAt(i);
-            System.out.println(selected.getTag());
-            System.out.println(selected.getTag().toString());
-            System.out.println(selected.getTag().toString().equals(name));
-            if (selected.getTag() != null && selected.getTag().toString().equals(name))
-            {
-                // do something. E.g change block name
-                TextView textViewClassesBlock1 = selected.findViewById(R.id.Item1);
-                textViewClassesBlock1.setText("Block XXX");
-                return;
-            }
-        }
-    }
 }
 
 

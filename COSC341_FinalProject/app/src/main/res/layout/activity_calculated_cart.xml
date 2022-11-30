@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:visibility="visible"
     tools:context=".CalculatedCart">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/BackButtonCalc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:baselineAlignBottom="false"
+        android:clickable="true"
+        android:cropToPadding="false"
+        android:onClick="onDone"
+        android:src="@drawable/back_arrow"
+        app:fabSize="mini"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="24dp"
+        app:useCompatPadding="false" />
 
     <Button
         android:id="@+id/HelpButtonComparison"
-        android:layout_width="59dp"
+        android:layout_width="0dp"
         android:layout_height="19dp"
-        android:layout_marginStart="350dp"
         android:background="#00FFFFFF"
         android:insetTop="0dp"
         android:insetBottom="0dp"
@@ -20,36 +35,62 @@
         android:text="Help"
         android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="8sp" />
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/StoreNameCalc"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="10dp"
         android:text="Store Name"
-        android:textAlignment="textEnd"
+        android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/BackButtonCalc"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/scrollView2"
+        android:layout_width="410dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginBottom="29dp"
+        app:layout_constraintBottom_toTopOf="@+id/TotalCalc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/cards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <include
-                android:id="@+id/includedLayoutFirst"
-                layout="@layout/card_base"
-                android:visibility="visible" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            android:orientation="vertical" />
     </ScrollView>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    <TextView
+        android:id="@+id/TotalCalc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="51dp"
+        android:text="grand total: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="onDoneClick"
+        android:text="DONE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TotalCalc" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
