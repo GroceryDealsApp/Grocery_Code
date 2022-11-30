@@ -21,7 +21,7 @@ public class ActivityHome extends AppCompatActivity {
             loadData();
             Global.firstRun = true;
         }
-        Intent intent = new Intent(this, ReplaceItem.class);
+        Intent intent = new Intent(this, NewCart.class);
         startActivity(intent);
 
     }
