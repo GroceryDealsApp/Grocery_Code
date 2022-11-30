@@ -88,9 +88,21 @@ public class FavouriteItem2Search extends AppCompatActivity {
             weight.setText(p.getFormattedWeight());
             //value.setText(p.getFormattedValue());
             //price.setText(p.getFormattedPrice());
-            addButt.setOnClickListener(new View.OnClickListener() {
+            addButt.setOnClickListener(new View.OnClickListener() {  //ON ADD FAVE BUTTON PRESS
                 public void onClick(View v) {
-                    Global.faves.add(itemName.getText().toString());
+                    String fname = itemName.getText().toString();
+                    //find the favourite item and add the product to faveItems
+                    int totalprods = Global.products.size();
+                    for (int j = 0; j < totalprods; j++) {
+                        Product p = Global.products.get(j);
+                        if((p.getFullName().toLowerCase()).contains(fname.toLowerCase())){
+                            //TODO: Eventually check so you can't add the same product to favourites twice
+                            FaveProduct fp = new FaveProduct(fname, true, p.getWeight(), p.getFilename());
+                            Global.faves.add(fp);
+                            j = totalprods; //stop the loop to not add any item twice (in the case that the item is at multiple stores)
+                        }
+                    }
+
                     Intent intent = new Intent();
                     //intent.putExtra("editTextValue", "value_here"); for sending data back, though i just wanna cal the method to update the list of items
                     setResult(RESULT_OK, intent);
