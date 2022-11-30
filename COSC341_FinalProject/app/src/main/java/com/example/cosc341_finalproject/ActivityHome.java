@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,7 +26,9 @@ public class ActivityHome extends AppCompatActivity {
         }
         Intent intent = new Intent(this, ReplaceItem.class);
         startActivity(intent);
-
+        //ImageButton btn = (ImageButton) findViewById(R.id.buttonNewCart);
+        //int width = getResources().getDisplayMetrics().widthPixels/3;
+        //btn.setLayoutParams(new RelativeLayout.LayoutParams(width, height));
     }
 
     //loads data from Items.csv into Global.products
