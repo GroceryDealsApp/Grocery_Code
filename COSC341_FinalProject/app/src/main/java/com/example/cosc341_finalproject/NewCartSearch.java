@@ -58,7 +58,7 @@ public class NewCartSearch extends AppCompatActivity {
             v.setImageResource(resID);
 
             itemName.setText(p.getFullName());
-           // item = p.getFullName();
+            // item = p.getFullName();
             weight.setText(p.getFormattedWeight());
             value.setText(p.getFormattedValue());
             price.setText(p.getFormattedPrice());
@@ -67,6 +67,7 @@ public class NewCartSearch extends AppCompatActivity {
             newCard.setTag(i);
             cards.addView(newCard);
         }
+
 
 
         NewCartSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -129,30 +130,43 @@ public class NewCartSearch extends AppCompatActivity {
             AddButtonNew.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Global.items.add(itemName.getText().toString());
-                    Intent intent = new Intent();
-                    setResult(RESULT_OK, intent);
-                    finish();
-                }
+                    String name = itemName.getText().toString();
+                    int totalprods = Global.products.size();
+                   // Global.items.add(itemName.getText().toString());
+                    for(int j = 0; j <  totalprods; j++){
+                        Product p = Global.products.get(j);
+                        if((p.getFullName().toLowerCase()).contains(name.toLowerCase())){
+                            Product pp = new Product(p.getBrandName(), p.getBaseItemName(), p.getPrice(), p.getWeight(), p.getValue(), p.getStore(), p.getFileNameWithoutExtension());
+                           // FaveProduct fp = new FaveProduct(name, true, p.getWeight(), p.getFilename());
+                            Global.carts.add(String.valueOf(pp));
+                            j= totalprods;
+                        }
+                    }
+                        Intent intent = new Intent();
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
             });
+
+
 
             newCard.setTag(i);
             cards.addView(newCard);
+            }
 
-        }
-    }
-
-
+            }
 
 
 
 
 
 
-    public void onBack (View view){
+
+
+
+
+        public void onBack (View view){
         finish();
+        }
+
     }
-
-
-
-}

@@ -19,7 +19,7 @@ public class NewCart extends AppCompatActivity {
     TextView itemName;
     LinearLayoutCompat cards;
     //boolean first = true;
-   // String item = "";
+    // String item = "";
 
 
 
@@ -27,52 +27,53 @@ public class NewCart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_cart);
-      //  EditText NewCartSearch = (EditText) findViewById(R.id.NewCartSearch);
-        List<Product> pp = Product.getProductsByBaseItem(baseItem);
+        //  EditText NewCartSearch = (EditText) findViewById(R.id.NewCartSearch);
+        //  List<Product> pp = Product.getProductsByBaseItem(baseItem);
         //int total = pp.size();
 
         cards = findViewById(R.id.cards);
-       // updateCards();
+        // updateCards();
 
 
+    }
+
+
+    public void clearCards () {
+        int count = cards.getChildCount();
+        View v = null;
+        for (int i = count - 1; i >= 0; i--) {
+            v = cards.getChildAt(i);
+            ((ViewGroup) v.getParent()).removeView(v);
         }
+    }
 
+    public void updateCards () {
+        List<Product> prods = Product.getProductsByBaseItem(baseItem);
 
-        public void clearCards () {
-            int count = cards.getChildCount();
-            View v = null;
-            for (int i = count - 1; i >= 0; i--) {
-                v = cards.getChildAt(i);
-                ((ViewGroup) v.getParent()).removeView(v);
-            }
-        }
-
-        public void updateCards () {
-            List<Product> prods = Product.getProductsByBaseItem(baseItem);
-            clearCards();
-            for (String item : Global.items) {
-                //test = test + "\n" + favName;
-                //find the favourite item and add the product to prods
-                int totalprods = Global.products.size();
-                for (int i = 0; i < totalprods; i++) {
-                    Product p = Global.products.get(i);
-                    if((p.getFullName().toLowerCase()).contains(item.toLowerCase())){
-                        prods.add(p);
-                    }
+        for (String item : Global.items) {
+            //test = test + "\n" + favName;
+            //find the favourite item and add the product to prods
+            int totalprods = Global.products.size();
+            for (int i = 0; i < totalprods; i++) {
+                Product p = Global.products.get(i);
+                if ((p.getFullName().toLowerCase()).contains(item.toLowerCase())) {
+                    prods.add(p);
                 }
             }
-            int total = prods.size();
+            clearCards();
+
+            int total = Global.products.size();
             cards = findViewById(R.id.cards);
             for (int i = 0; i < total; i++) {
                 CardView newCard = new CardView(NewCart.this);
-                getLayoutInflater().inflate(R.layout.card_base_fav, newCard);
+                getLayoutInflater().inflate(R.layout.card_comparison, newCard);
 
-                 itemName = newCard.findViewById(R.id.Item1);
+                itemName = newCard.findViewById(R.id.Item1);
                 TextView weight = newCard.findViewById(R.id.Weight1);
                 TextView value = newCard.findViewById(R.id.Value1);
                 TextView price = newCard.findViewById(R.id.Price1);
                 ImageView v = newCard.findViewById(R.id.itemImage1);
-              //  Button addButtonNew = newCard.findViewById(R.id.addButtonNew);
+                //  Button addButtonNew = newCard.findViewById(R.id.addButtonNew);
 
                 Product p = prods.get(i);
 
@@ -84,19 +85,20 @@ public class NewCart extends AppCompatActivity {
                 weight.setText(p.getFormattedWeight());
                 value.setText(p.getFormattedValue());
                 price.setText(p.getFormattedPrice());
-             //   addButt.setOnClickListener(new View.OnClickListener() {
+                //   addButt.setOnClickListener(new View.OnClickListener() {
                 //    @Override
-                  //  public void onClick(View view) {
-                     //   Global.items.add(itemName.getText().toString());
-                   //     finish();
-                  //  }
-              //  });
+                //  public void onClick(View view) {
+                //   Global.items.add(itemName.getText().toString());
+                //     finish();
+                //  }
+                //  });
 
                 newCard.setTag(i);
                 cards.addView(newCard);
 
             }
         }
+    }
 
       /*  public void allItems () {
             List<Product> prods = Global.products;
@@ -183,17 +185,19 @@ public class NewCart extends AppCompatActivity {
         }
 
     }*/
-    public void onAddNewItem(View view) {
-        Intent intent = new Intent(this, NewCartSearch.class);
-        startActivityForResult(intent, 1);
-    }
-    public void onDone(View v){
-        finish();
-    }
-
-
-
+        public void onAddNewItem(View view) {
+            Intent intent = new Intent(this, NewCartSearch.class);
+            startActivityForResult(intent, 1);
         }
+        public void onDone(View v){
+            Intent intent = new Intent(this, CalculatedCart.class);
+            startActivity(intent);
+        }
+
+
+
+    }
+
 
 
 

@@ -68,7 +68,7 @@
             android:textColor="#FFFFFF" />
 
         <Button
-            android:id="@+id/SwapButton"
+            android:id="@+id/AddFavButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="295dp"
