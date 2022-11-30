@@ -18,7 +18,7 @@ public class UserSettings extends AppCompatActivity {
         finish();
     }
     public void onFavouriteItems(View v){
-        Intent intent = new Intent(this, FavouriteItem.class);
+        Intent intent = new Intent(this, FavouriteItemv22.class);
         startActivity(intent);
     }
     public void onBlacklistedItems(View v){

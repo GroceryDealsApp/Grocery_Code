@@ -23,8 +23,10 @@
             android:id="@+id/Weight1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_below="@+id/Item1"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/itemImage1"
             android:text="Weight"
             android:textColor="#FFFFFF" />
 
@@ -47,34 +49,19 @@
             android:layout_marginTop="2dp"
             android:background="@drawable/button_border" />
 
-        <TextView
-            android:id="@+id/Value1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:layout_toEndOf="@+id/Weight1"
-            android:text="ValueofItem"
-            android:textColor="#FFFFFF" />
-
-        <TextView
-            android:id="@+id/Price1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:layout_toEndOf="@+id/Value1"
-            android:text="Price"
-            android:textColor="#FFFFFF" />
-
         <Button
-            android:id="@+id/AddFavButton"
+            android:id="@+id/DeleteFavButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="295dp"
-            android:backgroundTint="#035C53"
+            android:layout_alignTop="@+id/Weight1"
+            android:layout_marginStart="92dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/Weight1"
+            android:backgroundTint="#800303"
             android:backgroundTintMode="add"
-            android:text="Swap"
+            android:text="Delete"
+            android:textSize="14sp"
             app:cornerRadius="10dp" />
 
 

@@ -64,6 +64,29 @@ public class Product {
         return things;
     }
 
+    static public List<Product> getProductsByFullName(String fullname){
+        List<Product> things = new ArrayList<>();
+        int total = Global.products.size();
+        for (int i = 0; i < total; i++) {
+            Product p = Global.products.get(i);
+            if((p.getFullName().toLowerCase()).contains(fullname.toLowerCase())){
+                things.add(p);
+            }
+        }
+        return things;
+    }
+    static public List<Product> getProductsByFullName(String fullname, List<Product> existingList){
+        List<Product> things = new ArrayList<>();
+        int total = existingList.size();
+        for (int i = 0; i < total; i++) {
+            Product p = existingList.get(i);
+            if((p.getFullName().toLowerCase()).contains(fullname.toLowerCase())){
+                things.add(p);
+            }
+        }
+        return things;
+    }
+
     static public List<Product> getProductCloseToWeight(int weightInGrams, List<Product> existingList){
         List<Product> things = new ArrayList<>();
         int total = existingList.size();
@@ -154,4 +177,5 @@ public class Product {
     public void setFilename(String filename) {
         this.filename = filename;
     }
+
 }

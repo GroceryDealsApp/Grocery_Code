@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class FavouriteItem extends AppCompatActivity {
+
     ArrayList<String[]> lines = new ArrayList<String[]>();
     String searchTerm = "";
     String results = "";
@@ -71,4 +72,6 @@ public class FavouriteItem extends AppCompatActivity {
                 finish();}});
 
     }
+
+
 }

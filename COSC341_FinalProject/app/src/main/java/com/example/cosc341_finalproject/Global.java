@@ -14,4 +14,5 @@ public class Global {
     public static List<Product> products = new ArrayList<>();
     public static boolean firstRun = false;
     public static List<String> carts = new ArrayList<>();
+    public static List<String> faves = new ArrayList<>();
 }
