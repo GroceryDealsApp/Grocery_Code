@@ -64,6 +64,18 @@
             android:textSize="14sp"
             app:cornerRadius="10dp" />
 
+        <ImageButton
+            android:id="@+id/ButtonNotif"
+            android:layout_width="57dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/DeleteFavButton"
+            android:layout_marginStart="130dp"
+            android:layout_marginBottom="-8dp"
+            android:layout_toEndOf="@+id/Weight1"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/notif_enabled" />
+
 
     </RelativeLayout>
 
