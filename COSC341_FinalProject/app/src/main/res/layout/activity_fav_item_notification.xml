@@ -7,10 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".FavouriteItem">
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Student Number"/>
-    <CheckBox android:id="@+id/priceDrops" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notify for price drops"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notification Settings For Favourite Items" />
+
+    <CheckBox
+        android:id="@+id/priceDrops"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notify for price drops"
+        app:checkedState="checked" />
     <CheckBox android:id="@+id/extraPoints" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notify for extra points"/>
-    <CheckBox android:id="@+id/sale" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notify for sale"/>
+
+    <CheckBox
+        android:id="@+id/sale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notify for sale"
+        app:checkedState="checked" />
     <Button android:id="@+id/done" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Done"/>
 
 </LinearLayout>
