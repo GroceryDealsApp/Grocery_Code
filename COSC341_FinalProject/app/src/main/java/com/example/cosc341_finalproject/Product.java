@@ -98,15 +98,6 @@ public class Product {
         }
         return things;
     }
-    static public List<Product> getAllProducts(List<Product> existingList){
-        List<Product> things = new ArrayList<>();
-        int total = existingList.size();
-        for(int i = 0; i < total; i++){
-            Product p = existingList.get(i);
-            things.add(p);
-        }
-        return things;
-    }
 
     //improved getter functions for convenience
     public String getFileNameWithoutExtension(){

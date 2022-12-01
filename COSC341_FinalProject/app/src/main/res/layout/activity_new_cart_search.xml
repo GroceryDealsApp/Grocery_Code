@@ -54,14 +54,15 @@
 
     <EditText
         android:id="@+id/NewCartSearch"
-        android:layout_width="wrap_content"
+        android:layout_width="258dp"
         android:layout_height="0dp"
-        android:layout_marginStart="88dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="44dp"
         android:ems="10"
+        android:hint="Please press enter to see List"
         android:inputType="textPersonName"
         android:onClick="onSearchClick"
-        app:layout_constraintStart_toStartOf="@+id/BackButtonNew"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Title" />
 
     <ImageView

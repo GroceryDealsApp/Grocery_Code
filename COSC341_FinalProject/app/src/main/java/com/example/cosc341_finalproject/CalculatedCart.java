@@ -85,6 +85,10 @@ public class CalculatedCart extends AppCompatActivity {
            }
        });
 
+        }
+    public void onBack(View view){
+        finish();
+
 
     }
 

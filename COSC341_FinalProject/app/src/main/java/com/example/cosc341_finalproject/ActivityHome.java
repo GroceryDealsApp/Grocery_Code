@@ -26,8 +26,8 @@ public class ActivityHome extends AppCompatActivity {
             Global.firstRun = true;
         }
 
-       Intent intent = new Intent(this, ReportItem.class);
-        startActivity(intent);
+      // Intent intent = new Intent(this, ReportItem.class);
+     //   startActivity(intent);
 
         //ImageButton btn = (ImageButton) findViewById(R.id.buttonNewCart);
         //int width = getResources().getDisplayMetrics().widthPixels/3;
