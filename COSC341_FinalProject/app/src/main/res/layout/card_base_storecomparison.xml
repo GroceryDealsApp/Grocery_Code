@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardview1"
+    android:layout_width="390dp"
+    android:layout_height="90dp"
+    android:layout_centerHorizontal="true"
+    android:layout_marginStart="1dp"
+    android:layout_marginLeft="1dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginBottom="10dp"
+    android:visibility="visible"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="390dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="20dp"
+        android:background="#00897B">
+
+        <TextView
+            android:id="@+id/totalValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/StoreNameText"
+            android:layout_marginStart="147dp"
+            android:layout_marginTop="29dp"
+            android:layout_toEndOf="@+id/StoreNameText"
+            android:text="total value"
+            android:textColor="#D2F6A8"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/distanceEtaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/StoreNameText"
+            android:layout_marginStart="-97dp"
+            android:layout_marginTop="45dp"
+            android:layout_toEndOf="@+id/StoreNameText"
+            android:text="Distance: 4.2km   ETA:  35min"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/totalCostText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/StoreNameText"
+            android:layout_marginStart="156dp"
+            android:layout_marginTop="3dp"
+            android:layout_toEndOf="@+id/StoreNameText"
+            android:text="totalCost"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/totalCostText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/StoreNameText"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="3dp"
+            android:layout_toEndOf="@+id/StoreNameText"
+            android:text="Total Calculated Cost:"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/StoreNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="3dp"
+            android:text="Store Name"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+
+        <ImageButton
+            android:id="@+id/ButtonCardDetailsArrow"
+            android:layout_width="65dp"
+            android:layout_height="58dp"
+            android:layout_alignBottom="@+id/totalValue"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="-59dp"
+            android:layout_marginBottom="14dp"
+            android:layout_toEndOf="@+id/totalValue"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/next_arrow"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/buttonMapStore"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/totalValue"
+            android:layout_alignEnd="@+id/totalValue"
+            android:layout_marginTop="-50dp"
+            android:layout_marginEnd="235dp"
+            android:text="Map" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

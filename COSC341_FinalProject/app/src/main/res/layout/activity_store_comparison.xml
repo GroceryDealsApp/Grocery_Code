@@ -7,6 +7,23 @@
     android:fadeScrollbars="false"
     tools:context=".StoreComparison">
 
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="132dp"
+        app:layout_constraintBottom_toTopOf="@+id/DoneButtonComp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/cards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
     <Spinner
         android:id="@+id/ImageSpinner"
         android:layout_width="100dp"
@@ -139,341 +156,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view1"
-        android:layout_width="390dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="11dp"
-        app:cardBackgroundColor="#FF00897B"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SortSpinner"
-        tools:ignore="MissingClass">
-
-        <TextView
-            android:id="@+id/StoreTitle1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="store1"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/MapViewButton1"
-            android:layout_width="63dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:onClick="onMap1Click"
-            android:text="map"
-            android:textSize="9sp"
-            app:iconPadding="0dp" />
-
-        <TextView
-            android:id="@+id/CalculatedTotal1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="30dp"
-            android:text="Calculated total ="
-            android:textColor="#FFFFFF" />
-
-        <TextView
-            android:id="@+id/km_eta1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="2.4km - eta 20min"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/ValueCalculationTotal1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="59dp"
-            android:text="Value Calculation"
-            android:textColor="#0A2C04"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/NextButtonComparison1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="342dp"
-
-            android:baselineAlignBottom="false"
-            android:clickable="true"
-            android:cropToPadding="false"
-            android:onClick="onNext1Click"
-            android:src="@drawable/next_arrow"
-            app:fabSize="mini"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:maxImageSize="24dp"
-            app:useCompatPadding="false" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view2"
-        android:layout_width="390dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="11dp"
-        app:cardBackgroundColor="#FF00897B"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_view1"
-        tools:ignore="MissingClass">
-
-        <TextView
-            android:id="@+id/StoreTitle2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="store2"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/MapViewButton2"
-            android:layout_width="63dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:onClick="onMap2Click"
-            android:text="map"
-            android:textSize="9sp"
-            app:iconPadding="0dp" />
-
-        <TextView
-            android:id="@+id/CalculatedTotal2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="30dp"
-            android:text="Calculated total ="
-            android:textColor="#FFFFFF" />
-
-        <TextView
-            android:id="@+id/km_eta2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="2.4km - eta 20min4km - eta 35min"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/ValueCalculationTotal2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="59dp"
-            android:text="Value Calculation"
-            android:textColor="#0A2C04"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/NextButtonComparison2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="342dp"
-
-            android:baselineAlignBottom="false"
-            android:clickable="true"
-            android:cropToPadding="false"
-            android:onClick="onNext2Click"
-            android:src="@drawable/next_arrow"
-            app:fabSize="mini"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:maxImageSize="24dp"
-            app:useCompatPadding="false" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view3"
-        android:layout_width="390dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="48dp"
-        app:cardBackgroundColor="#FF00897B"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_view2"
-        tools:ignore="MissingClass">
-
-        <TextView
-            android:id="@+id/StoreTitle3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="store3"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/MapViewButton3"
-            android:layout_width="63dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:onClick="onMap3Click"
-            android:text="map"
-            android:textSize="9sp"
-            app:iconPadding="0dp" />
-
-        <TextView
-            android:id="@+id/CalculatedTotal3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="30dp"
-            android:text="Calculated total ="
-            android:textColor="#FFFFFF" />
-
-        <TextView
-            android:id="@+id/km_eta3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="3km - eta 25min"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/ValueCalculationTotal3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="59dp"
-            android:text="Value Calculation"
-            android:textColor="#0A2C04"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/NextButtonComparison3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="342dp"
-
-            android:baselineAlignBottom="false"
-            android:clickable="true"
-            android:cropToPadding="false"
-            android:onClick="onNext3Click"
-            android:src="@drawable/next_arrow"
-            app:fabSize="mini"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:maxImageSize="24dp"
-            app:useCompatPadding="false" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view4"
-        android:layout_width="390dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="11dp"
-        app:cardBackgroundColor="#FF00897B"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_view3"
-        tools:ignore="MissingClass">
-
-        <TextView
-            android:id="@+id/StoreTitle4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="store4"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/MapViewButton4"
-            android:layout_width="63dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:onClick="onMap4Click"
-            android:text="map"
-            android:textSize="9sp"
-            app:iconPadding="0dp" />
-
-        <TextView
-            android:id="@+id/CalculatedTotal4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="30dp"
-            android:text="Calculated total ="
-            android:textColor="#FFFFFF" />
-
-        <TextView
-            android:id="@+id/km_eta4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="4.5km - eta 38min"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/ValueCalculationTotal4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="59dp"
-            android:text="Value Calculation"
-            android:textColor="#0A2C04"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            app:cardBackgroundColor="#FF00897B" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/NextButtonComparison4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="342dp"
-
-            android:baselineAlignBottom="false"
-            android:clickable="true"
-            android:cropToPadding="false"
-            android:onClick="onNext4Click"
-            android:src="@drawable/next_arrow"
-            app:fabSize="mini"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:maxImageSize="24dp"
-            app:useCompatPadding="false" />
-
-    </androidx.cardview.widget.CardView>
-
     <Button
         android:id="@+id/DoneButtonComp"
         android:layout_width="wrap_content"
@@ -481,7 +163,7 @@
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="16dp"
         android:onClick="OnDoneClick"
-        android:text="DONE"
+        android:text="DONE (to be moved)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -492,7 +174,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:onClick="onReplaceClick"
-        android:text="Replace"
+        android:text="Replace (to be moved)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

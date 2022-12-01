@@ -27,12 +27,26 @@ public class CalculatedCart extends AppCompatActivity {
     private int total;
     double totalPrice = 0;
     TextView TotalCalc;
+    String storeName = "placeholder";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculated_cart);
-        List<Product> prods = Product.getProductsByBaseItem("rice");
+
+        Intent intent = getIntent();
+        storeName = intent.getStringExtra("store"); //receive the store name
+        TextView storeNameText =  findViewById(R.id.StoreNameCalc);
+        storeNameText.setText(storeName);
+        //find the correct storecart
+        storeCart storecart = null;
+        for (storeCart cartThatMightMatch : Global.carts) {
+            if (cartThatMightMatch.getStore().equals(storeName)){
+                storecart = cartThatMightMatch;
+            }
+        }
+
+        List<Product> prods = storecart.getCartItems();
        // buttonSwap = findViewById(R.id.SwapButton1);
         TotalCalc = findViewById(R.id.TotalCalc);
         cards = findViewById(R.id.cards);

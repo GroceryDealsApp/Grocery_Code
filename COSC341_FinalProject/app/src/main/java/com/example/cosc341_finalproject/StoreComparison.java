@@ -1,12 +1,16 @@
 package com.example.cosc341_finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -14,13 +18,15 @@ import android.widget.Spinner;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class StoreComparison extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static Integer[] imageIconDatabase = {R.drawable.walk, R.drawable.bike, R.drawable.bus, R.drawable.car};
     //private String[] imageNameDatabase = {"walk", "bike", "bus", "car"};
     String storeNames[];
     String storename;
-
+    LinearLayoutCompat cards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,84 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.sort_array, android.R.layout.simple_spinner_item);
         SortSpinner.setAdapter(adapter2);
         SortSpinner.setOnItemSelectedListener( this);
+
+        //initialize carts
+        for (Store store : Global.stores) {
+            storeCart storecart = new storeCart(store.getStorename());
+            Global.carts.add(storecart);
+        }
+
+
+        cards = findViewById(R.id.cards);
+        updateStoreCards();
+
+    }
+
+    public void clearStoreCards(){
+        int count = cards.getChildCount();
+        View v = null;
+        for(int i=count-1; i>=0; i--) {
+            v = cards.getChildAt(i);
+            ((ViewGroup) v.getParent()).removeView(v);
+        }
+    }
+    public void updateStoreCards(){
+        //TextView tvf = findViewById(R.id.textViewFav);
+        //String test = "";
+        //List<FaveProduct> faveprods = new ArrayList<>(); //should just show nothing by default
+        //faveprods = Product.getProductsByBrand(brand,faveprods);
+        // For Loop for iterating all favourite items
+        //int numIt = Global.faves.size();
+        //for (int i = 0; i < numIt; i++) {
+        //    FaveProduct p = new FaveProduct();
+        //}
+
+        //tvf.setText(test);
+
+        clearStoreCards();
+
+        int total = Global.carts.size();
+        cards = findViewById(R.id.cards);
+        for (int i = 0; i < total; i++) {
+            //test = test + "\n" + i;
+            //tvf.setText(test);
+            storeCart storecart = Global.carts.get(i);
+            if (storecart.isCartAbleToBeFilled()) {
+
+                CardView newCard = new CardView(StoreComparison.this);
+                getLayoutInflater().inflate(R.layout.card_base_storecomparison, newCard);
+
+                TextView storeNameText = newCard.findViewById(R.id.StoreNameText);
+                TextView distanceEtaText = newCard.findViewById(R.id.distanceEtaText);
+                TextView totalCostText = newCard.findViewById(R.id.totalCostText);
+                TextView totalValueText = newCard.findViewById(R.id.totalValue);
+                ImageButton ButtCardDetails = newCard.findViewById(R.id.ButtonCardDetailsArrow);
+                Button mapButt = newCard.findViewById(R.id.buttonMapStore);
+
+
+                storeNameText.setText(storecart.getStore());
+                //TODO: set distance eta text to an actual value from google maps
+                totalCostText.setText(storecart.getTotalcostFormatted());
+                totalValueText.setText(storecart.getTotalvalueFormatted());
+
+
+                mapButt.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        //TODO: open map of route to store from campus
+                    }
+                });
+
+                ButtCardDetails.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(v.getContext(), CalculatedCart.class);
+                        intent.putExtra("store", storecart.getStore());
+                        startActivity(intent);
+                    }
+                });
+                newCard.setTag(i);
+                cards.addView(newCard);
+            }
+        }
     }
 
     @Override
@@ -91,20 +175,9 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
     public void onMap4Click(View view){
 
     }
-    public void onNext1Click(View view){
-
-    }
-    public void onNext2Click(View view){
-
-    }
-    public void onNext3Click(View view){
-
-    }
-    public void onNext4Click(View view){
-
-    }
     public void OnDoneClick(View view){
-        Intent intent = new Intent(this, CalculatedCart.class);
+        //TODO: should go back to homescreen with the usercart put in the recently made carts area
+        Intent intent = new Intent(this, ActivityHome.class);
         startActivity(intent);
 
     }

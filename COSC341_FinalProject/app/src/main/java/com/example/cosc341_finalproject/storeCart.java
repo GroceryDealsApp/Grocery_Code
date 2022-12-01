@@ -22,6 +22,7 @@ public class storeCart {
         this.weightUnit =  "kg";
         this.cartItems =  new ArrayList<>();
         this.cartAbleToBeFilled = false;
+        createCart();
     }
 
     //useful methods
@@ -65,18 +66,18 @@ public class storeCart {
             //if the store has none of the required base item, show error
             if (itemsWithSameBaseInStore.size() == 0) {
                 cartAbleToBeFilled = false;
-                return;
+            } else {
+                //check to see if the store carries a base item of better value
+                Product bestValProduct = itemsWithSameBaseInStore.get(0);
+                int allprodsSameBaseSize = itemsWithSameBaseInStore.size();
+                for (int j = 0; j < allprodsSameBaseSize; j++) {
+                    Product potentiallyBetterProd = itemsWithSameBaseInStore.get(j);
+                    if (bestValProduct.getValue() < potentiallyBetterProd.getValue())
+                        bestValProduct = potentiallyBetterProd;
+                }
+                //add the bestvalue product to cartItems
+                cartItems.add(bestValProduct);
             }
-            //check to see if the store carries a base item of better value
-            Product bestValProduct = itemsWithSameBaseInStore.get(0);
-            int allprodsSameBaseSize = itemsWithSameBaseInStore.size();
-            for (int j = 0; j < allprodsSameBaseSize; j++) {
-                Product potentiallyBetterProd = itemsWithSameBaseInStore.get(j);
-                if (bestValProduct.getValue() < potentiallyBetterProd.getValue())
-                    bestValProduct = potentiallyBetterProd;
-            }
-            //add the bestvalue product to cartItems
-            cartItems.add(bestValProduct);
         }
     }
 
@@ -103,6 +104,7 @@ public class storeCart {
 
 //getters and setters
     public double getTotalcost() { //use these for store comparisons
+        updateTotalCost();
          return totalcost;
     }
     public double getTotalvalue() {
@@ -129,5 +131,8 @@ public class storeCart {
         this.weightUnit = weightUnit;
     }
 
+    public List<Product> getCartItems() {
+        return cartItems;
+    }
 
 }

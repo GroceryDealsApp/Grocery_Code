@@ -55,6 +55,16 @@ public class ActivityHome extends AppCompatActivity {
                 String fileName = s.next();
                 Product p = new Product(brand,base,price,weight,value,store,fileName);
                 p.addItemToGlobalVar();
+                //add stores
+                Store storeWithPossiblySameName = new Store(store);
+                boolean storeHasSameName = false;
+                for (Store storesAlreadyExisting : Global.stores) {
+                    if (storesAlreadyExisting.getStorename().equals(store)) {
+                        storeHasSameName = true;
+                    }
+                }
+                if (storeHasSameName == false)
+                    Global.stores.add(storeWithPossiblySameName);
             }
             input.close();
         } catch (IOException e) {
