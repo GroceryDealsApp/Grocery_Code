@@ -21,6 +21,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class StoreComparison extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static Integer[] imageIconDatabase = {R.drawable.walk, R.drawable.bike, R.drawable.bus, R.drawable.car};
     //private String[] imageNameDatabase = {"walk", "bike", "bus", "car"};
@@ -42,6 +44,7 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
         SortSpinner.setOnItemSelectedListener( this);
 
         //initialize carts
+        Global.carts = new ArrayList<>();
         for (Store store : Global.stores) {
             storeCart storecart = new storeCart(store.getStorename());
             Global.carts.add(storecart);
