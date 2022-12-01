@@ -79,6 +79,7 @@
         android:id="@+id/textViewhelpHome"
         android:layout_width="368dp"
         android:layout_height="240dp"
+        android:background="#8BC34A"
         android:text="Welcome to the grocery deals app!\n\n Here you can:\n\n -Create a cart of items that will be compared at different stores to show you which store will give you the best value\n\n -See your saved carts for easy-access\n\n -Open user settings to adjust preferences as well as save favourite items and set up notifications for when they go on sale"
         app:layout_constraintBottom_toTopOf="@+id/buttonSavedCarts"
         app:layout_constraintEnd_toEndOf="parent"
