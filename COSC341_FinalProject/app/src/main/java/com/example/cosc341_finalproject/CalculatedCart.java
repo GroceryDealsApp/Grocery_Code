@@ -79,7 +79,7 @@ public class CalculatedCart extends AppCompatActivity {
 
 
         }
-        String pp = "Grand total: " + Double.toString(totalPrice);
+        String pp = "Grand total: $" + Double.toString(totalPrice);
         TotalCalc.setText(pp);
          DoneButton = findViewById(R.id.DoneButton);
          DoneButton.setVisibility(View.VISIBLE);
