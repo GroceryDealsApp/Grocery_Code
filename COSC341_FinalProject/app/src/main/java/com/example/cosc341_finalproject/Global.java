@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Global {
+public class Global { //this is essentially like our database lol
     public static List<String> newcart_items = new ArrayList<>();
     public static List<Product> products = new ArrayList<>();
     public static boolean firstRun = false;
-    public static List<String> carts = new ArrayList<>();
+    public static List<storeCart> carts = new ArrayList<>();
     public static List<FaveProduct> faves = new ArrayList<>();
 }
