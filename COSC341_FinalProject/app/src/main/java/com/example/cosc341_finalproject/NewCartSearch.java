@@ -19,7 +19,6 @@ import java.util.List;
 
 public class NewCartSearch extends AppCompatActivity {
     String fullname = "";
-    Boolean first = true;
     LinearLayoutCompat cards;
     //boolean first = true;
     String item = "";
@@ -64,9 +63,6 @@ public class NewCartSearch extends AppCompatActivity {
         List<Product> prods = Product.getProductsByFullName("");
         if(fullname.length()>1){
             prods = Product.getProductsByFullName(fullname, prods);
-        }
-        if(first){
-            first = false;
         }
         else {
             clearCards();

@@ -32,7 +32,7 @@ public class NewCart extends AppCompatActivity {
         //int total = pp.size();
 
         cards = findViewById(R.id.cards);
-        // updateCards();
+        updateCards();
 
 
     }
