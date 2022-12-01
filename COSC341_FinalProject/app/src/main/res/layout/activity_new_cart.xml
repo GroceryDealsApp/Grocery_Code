@@ -16,7 +16,7 @@
         android:baselineAlignBottom="false"
         android:clickable="true"
         android:cropToPadding="false"
-        android:onClick="onDone"
+        android:onClick="onBackNewClick"
         android:src="@drawable/back_arrow"
         app:fabSize="mini"
         app:layout_constraintStart_toStartOf="parent"

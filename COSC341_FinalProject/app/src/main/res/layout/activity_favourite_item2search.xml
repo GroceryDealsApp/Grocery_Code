@@ -25,6 +25,8 @@
         android:imeOptions="actionDone"
         android:inputType="text"
         android:minHeight="48dp"
+        android:text="Please press enter to see List"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

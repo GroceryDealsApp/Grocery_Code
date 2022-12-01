@@ -2,6 +2,7 @@ package com.example.cosc341_finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -101,6 +102,15 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
     }
     public void onNext4Click(View view){
 
+    }
+    public void OnDoneClick(View view){
+        Intent intent = new Intent(this, CalculatedCart.class);
+        startActivity(intent);
+
+    }
+    public void onReplaceClick(View view){
+        Intent intent = new Intent(this, ReplaceItem.class);
+        startActivity(intent);
     }
 
 

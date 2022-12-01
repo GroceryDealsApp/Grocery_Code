@@ -3,6 +3,7 @@ package com.example.cosc341_finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class ReportItem extends AppCompatActivity {
 
@@ -10,5 +11,12 @@ public class ReportItem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_item);
+    }
+    public void onCancelClick(View view){
+        finish();
+    }
+    public void onDoneClick(View view){
+        finish();
+
     }
 }

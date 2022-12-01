@@ -190,7 +190,7 @@ public class NewCart extends AppCompatActivity {
             startActivityForResult(intent, 1);
         }
         public void onDone(View v){
-            Intent intent = new Intent(this, CalculatedCart.class);
+            Intent intent = new Intent(this, StoreComparison.class);
             startActivity(intent);
         }
 

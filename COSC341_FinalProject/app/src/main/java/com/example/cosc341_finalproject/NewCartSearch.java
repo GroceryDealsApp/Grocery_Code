@@ -20,7 +20,7 @@ import java.util.List;
 
 public class NewCartSearch extends AppCompatActivity {
     String fullname = "";
-
+    Boolean first = true;
     LinearLayoutCompat cards;
     //boolean first = true;
     String item = "";
@@ -33,43 +33,7 @@ public class NewCartSearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_cart_search);
         EditText NewCartSearch = (EditText) findViewById(R.id.NewCartSearch);
-        List<Product> pp = Product.getAllProducts(Global.products);
-
-
-
-        int total = pp.size();
-        cards = findViewById(R.id.cards);
-        for (int i = 0; i < total; i++) {
-            CardView newCard = new CardView(NewCartSearch.this);
-            final int finalI = i;
-
-            getLayoutInflater().inflate(R.layout.card_comparison, newCard);
-
-            TextView itemName = newCard.findViewById(R.id.Item1);
-            TextView weight = newCard.findViewById(R.id.Weight1);
-            TextView value = newCard.findViewById(R.id.Value1);
-            TextView price = newCard.findViewById(R.id.Price1);
-            ImageView v = newCard.findViewById(R.id.itemImage1);
-
-            Product p = pp.get(i);
-
-            String imageName = p.getFileNameWithoutExtension();
-            int resID = getResources().getIdentifier(imageName, "drawable", getPackageName());
-            v.setImageResource(resID);
-
-            itemName.setText(p.getFullName());
-            // item = p.getFullName();
-            weight.setText(p.getFormattedWeight());
-            value.setText(p.getFormattedValue());
-            price.setText(p.getFormattedPrice());
-
-
-            newCard.setTag(i);
-            cards.addView(newCard);
-        }
-
-
-
+       // List<Product> pp = Product.getAllProducts(Global.products);
         NewCartSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -83,7 +47,7 @@ public class NewCartSearch extends AppCompatActivity {
             }
         });
         cards = findViewById(R.id.cards);
-        updateCards();
+        //updateCards();
 
     }
 
@@ -102,7 +66,12 @@ public class NewCartSearch extends AppCompatActivity {
         if(fullname.length()>1){
             prods = Product.getProductsByFullName(fullname, prods);
         }
-        clearCards();
+        if(first){
+            first = false;
+        }
+        else {
+            clearCards();
+        }
 
         int total = prods.size();
         cards = findViewById(R.id.cards);
