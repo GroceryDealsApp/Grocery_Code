@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -73,5 +74,17 @@ public class ActivityHome extends AppCompatActivity {
     public void pressUserSettings(View view) {
         Intent intent = new Intent(this, UserSettings.class);
         startActivity(intent);
+    }
+    public void onPressOkayHelp(View view) {
+        TextView helpText = findViewById(R.id.textViewhelpHome);
+        helpText.setVisibility(View.INVISIBLE);
+        Button helpButton = findViewById(R.id.buttonOkay);
+        helpButton.setVisibility(View.INVISIBLE);
+    }
+    public void onPressNeedHelp(View view) {
+        TextView helpText = findViewById(R.id.textViewhelpHome);
+        helpText.setVisibility(View.VISIBLE);
+        Button helpButton = findViewById(R.id.buttonOkay);
+        helpButton.setVisibility(View.VISIBLE);
     }
 }
