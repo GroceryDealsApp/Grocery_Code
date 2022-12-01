@@ -54,7 +54,7 @@ public class CalculatedCart extends AppCompatActivity {
         cards = findViewById(R.id.cards);
         for (int i = 0; i < total; i++) {
             CardView newCard = new CardView(CalculatedCart.this);
-            getLayoutInflater().inflate(R.layout.card_base2, newCard);
+            getLayoutInflater().inflate(R.layout.card_swap, newCard);
 
             TextView itemName = newCard.findViewById(R.id.Item1);
             TextView weight = newCard.findViewById(R.id.Weight1);
