@@ -22,8 +22,10 @@
             android:id="@+id/Weight1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_below="@+id/Item1"
+            android:layout_marginStart="83dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/itemImage1"
             android:text="Weight"
             android:textColor="#FFFFFF" />
 
@@ -46,31 +48,11 @@
             android:layout_marginTop="2dp"
             android:background="@drawable/button_border" />
 
-        <TextView
-            android:id="@+id/Value1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:layout_toEndOf="@+id/Weight1"
-            android:text="ValueofItem"
-            android:textColor="#FFFFFF" />
-
-        <TextView
-            android:id="@+id/Price1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:layout_toEndOf="@+id/Value1"
-            android:text="Price"
-            android:textColor="#FFFFFF" />
-
         <Button
             android:id="@+id/AddButtonNew"
-            android:layout_width="100dp"
+            android:layout_width="76dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
+            android:layout_marginStart="104dp"
             android:layout_marginLeft="250dp"
             android:layout_toEndOf="@+id/Weight1"
             android:backgroundTint="#035C53"

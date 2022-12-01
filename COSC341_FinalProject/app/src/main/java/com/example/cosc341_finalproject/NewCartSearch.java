@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class NewCartSearch extends AppCompatActivity {
@@ -77,12 +76,12 @@ public class NewCartSearch extends AppCompatActivity {
         cards = findViewById(R.id.cards);
         for (int i = 0; i < total; i++) {
             CardView newCard = new CardView(NewCartSearch.this);
-            getLayoutInflater().inflate(R.layout.card_comparison, newCard);
+            getLayoutInflater().inflate(R.layout.card_add_newcart_item, newCard);
 
             TextView itemName = newCard.findViewById(R.id.Item1);
             TextView weight = newCard.findViewById(R.id.Weight1);
-            TextView value = newCard.findViewById(R.id.Value1);
-            TextView price = newCard.findViewById(R.id.Price1);
+            //TextView value = newCard.findViewById(R.id.Value1);
+            //TextView price = newCard.findViewById(R.id.Price1);
             ImageView v = newCard.findViewById(R.id.itemImage1);
             Button AddButtonNew = newCard.findViewById(R.id.AddButtonNew);
 
@@ -94,31 +93,31 @@ public class NewCartSearch extends AppCompatActivity {
 
             itemName.setText(p.getFullName());
             weight.setText(p.getFormattedWeight());
-            value.setText(p.getFormattedValue());
-            price.setText(p.getFormattedPrice());
+            //value.setText(p.getFormattedValue());
+            //price.setText(p.getFormattedPrice());
             AddButtonNew.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     String name = itemName.getText().toString();
                     int totalprods = Global.products.size();
                    // Global.items.add(itemName.getText().toString());
+                    Global.newcart_items.add(name);
+                    /*
                     for(int j = 0; j <  totalprods; j++){
                         Product p = Global.products.get(j);
                         if((p.getFullName().toLowerCase()).contains(name.toLowerCase())){
-                            Product pp = new Product(p.getBrandName(), p.getBaseItemName(), p.getPrice(), p.getWeight(), p.getValue(), p.getStore(), p.getFileNameWithoutExtension());
-                           // FaveProduct fp = new FaveProduct(name, true, p.getWeight(), p.getFilename());
-                            Global.carts.add(String.valueOf(pp));
+                            //Product pp = new Product(p.getBrandName(), p.getBaseItemName(), p.getPrice(), p.getWeight(), p.getValue(), p.getStore(), p.getFileNameWithoutExtension());
+                            Global.carts.add(name);
                             j= totalprods;
                         }
                     }
+                    */
+
                         Intent intent = new Intent();
                         setResult(RESULT_OK, intent);
                         finish();
                     }
             });
-
-
-
             newCard.setTag(i);
             cards.addView(newCard);
             }

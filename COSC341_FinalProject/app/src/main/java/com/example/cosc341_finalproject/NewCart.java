@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 public class NewCart extends AppCompatActivity {
-    String baseItem = "";
+    //String baseItem = "";
     //TextView itemName;
     LinearLayoutCompat cards;
     //boolean first = true;
@@ -47,11 +47,12 @@ public class NewCart extends AppCompatActivity {
         }
     }
 
-    public void updateCards () {
-        List<Product> prods = Product.getProductsByBaseItem(baseItem);
-
-        for (String item : Global.items) {
-            //test = test + "\n" + favName;
+    public void updateCards() {
+        List<Product> prods = Product.getProductsByBaseItem("asdhioashdoa");
+        //TextView ncText = findViewById(R.id.textViewNewCart);
+        //String test = "";
+        for (String item : Global.newcart_items) {
+            //test = test + "\n" + item;
             //find the favourite item and add the product to prods
             int totalprods = Global.products.size();
             for (int i = 0; i < totalprods; i++) {
@@ -60,43 +61,48 @@ public class NewCart extends AppCompatActivity {
                     prods.add(p);
                 }
             }
-            clearCards();
+        }
+        //ncText.setText(test);
+        clearCards();
+        int total = Global.newcart_items.size();
+        cards = findViewById(R.id.cards);
+        for (int i = 0; i < total; i++) {
+            CardView newCard = new CardView(NewCart.this);
+            getLayoutInflater().inflate(R.layout.card_newcart__item, newCard);
 
-            int total = Global.products.size();
-            cards = findViewById(R.id.cards);
-            for (int i = 0; i < total; i++) {
-                CardView newCard = new CardView(NewCart.this);
-                getLayoutInflater().inflate(R.layout.card_newcard, newCard);
+            TextView itemName = newCard.findViewById(R.id.Item1);
+            TextView weight = newCard.findViewById(R.id.Weight1);
+            //TextView value = newCard.findViewById(R.id.Value1);
+            //TextView price = newCard.findViewById(R.id.Price1);
+            ImageView v = newCard.findViewById(R.id.itemImage1);
+            Button delNewItemButt = newCard.findViewById(R.id.deletenewItemButton);
 
-                TextView itemName = newCard.findViewById(R.id.Item1);
-                TextView weight = newCard.findViewById(R.id.Weight1);
-                TextView value = newCard.findViewById(R.id.Value1);
-                TextView price = newCard.findViewById(R.id.Price1);
-                ImageView v = newCard.findViewById(R.id.itemImage1);
-                //Button addButtonNew = newCard.findViewById(R.id.addButtonNew);
+            Product p = prods.get(i);
 
-                Product p = prods.get(i);
+            String imageName = p.getFileNameWithoutExtension();
+            int resID = getResources().getIdentifier(imageName, "drawable", getPackageName());
+            v.setImageResource(resID);
+            delNewItemButt.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Global.newcart_items.remove(Global.newcart_items.indexOf(p.getFullName()));
+                    updateCards();
+                }
+            });
+            itemName.setText(p.getFullName());
+            weight.setText(p.getFormattedWeight());
+            //value.setText(p.getFormattedValue());
+            //price.setText(p.getFormattedPrice());
+            //   addButt.setOnClickListener(new View.OnClickListener() {
+            //    @Override
+            //  public void onClick(View view) {
+            //   Global.items.add(itemName.getText().toString());
+            //     finish();
+            //  }
+            //  });
 
-                String imageName = p.getFileNameWithoutExtension();
-                int resID = getResources().getIdentifier(imageName, "drawable", getPackageName());
-                v.setImageResource(resID);
+            newCard.setTag(i);
+            cards.addView(newCard);
 
-                itemName.setText(p.getFullName());
-                weight.setText(p.getFormattedWeight());
-                value.setText(p.getFormattedValue());
-                price.setText(p.getFormattedPrice());
-                //   addButt.setOnClickListener(new View.OnClickListener() {
-                //    @Override
-                //  public void onClick(View view) {
-                //   Global.items.add(itemName.getText().toString());
-                //     finish();
-                //  }
-                //  });
-
-                newCard.setTag(i);
-                cards.addView(newCard);
-
-            }
         }
     }
 
@@ -178,7 +184,7 @@ public class NewCart extends AppCompatActivity {
     {
         super.onActivityResult(requestCode, resultCode, data);
         // check if the request code is same as what is passed  here it is 1
-        if (requestCode == 1) {
+        if (requestCode == 2) {
             if(resultCode == RESULT_OK) {
                 updateCards();
             }
@@ -187,7 +193,7 @@ public class NewCart extends AppCompatActivity {
     }
         public void onAddNewItem(View view) {
             Intent intent = new Intent(this, NewCartSearch.class);
-            startActivityForResult(intent, 1);
+            startActivityForResult(intent, 2);
         }
         public void onDone(View v){
             Intent intent = new Intent(this, StoreComparison.class);
