@@ -22,7 +22,7 @@ public class storeCart {
         this.weightUnit =  "kg";
         this.cartItems =  new ArrayList<>();
         this.cartAbleToBeFilled = false;
-        createCart();
+        this.createCart();
     }
 
     //useful methods
@@ -46,6 +46,14 @@ public class storeCart {
             for (int i = 0; i < allprodsSize; i++) {
                 Product p = Global.products.get(i);
                 if (cartItemName.toLowerCase().equals(p.getFullName().toLowerCase())) {
+                    //check to see if it was already added (dirty fix, better fix is to make newcart_items have usercart_items instead of Strings
+                    boolean alreadyadded = false;
+                    for (int j = 0; j < userCartProds.size(); j++) {
+                        Product prodAlreadyInCart = userCartProds.get(j);
+                        if (prodAlreadyInCart.getFullName().equals(p.getFullName()))
+                            alreadyadded=true;
+                    }
+                    if (!alreadyadded)
                     userCartProds.add(p);
                 }
             }
@@ -58,13 +66,15 @@ public class storeCart {
             List<Product> itemsWithSameBaseInStore = new ArrayList<>();
             int allprodsSize = Global.products.size();
             for (int j = 0; j < allprodsSize; j++) {
-                Product prodWithSameBase = Global.products.get(j);
-                if (prodWithSameBase.getBaseItemName().equals(userCartProduct.getBaseItemName())) {
-                    itemsWithSameBaseInStore.add(prodWithSameBase);
+                Product prodWithSameBaseAndStore = Global.products.get(j);
+                if (prodWithSameBaseAndStore.getBaseItemName().equals(userCartProduct.getBaseItemName()) && prodWithSameBaseAndStore.getStore().equals(getStore())) {
+                    itemsWithSameBaseInStore.add(prodWithSameBaseAndStore);
+                    System.out.println(prodWithSameBaseAndStore.getFullName() + " " + prodWithSameBaseAndStore.getStore());
                 }
             }
             //if the store has none of the required base item, show error
             if (itemsWithSameBaseInStore.size() == 0) {
+                //System.out.println("Help");
                 cartAbleToBeFilled = false;
             } else {
                 //check to see if the store carries a base item of better value
@@ -72,13 +82,15 @@ public class storeCart {
                 int allprodsSameBaseSize = itemsWithSameBaseInStore.size();
                 for (int j = 0; j < allprodsSameBaseSize; j++) {
                     Product potentiallyBetterProd = itemsWithSameBaseInStore.get(j);
-                    if (bestValProduct.getValue() < potentiallyBetterProd.getValue())
+                    if (bestValProduct.getValue() > potentiallyBetterProd.getValue()) //value is $/100g, so less is better
                         bestValProduct = potentiallyBetterProd;
                 }
                 //add the bestvalue product to cartItems
+                //System.out.println(bestValProduct.getFullName());
                 cartItems.add(bestValProduct);
             }
         }
+        //listItems();
     }
 
     //other methods
@@ -100,7 +112,12 @@ public class storeCart {
         totalvalue = (totalcost/totalweight)*100; // $ per 100g i think
     }
 
-
+    public void listItems() {
+        System.out.println(getStore());
+        for (Product p : cartItems) {
+            System.out.println("Full name: " + p.getFullName() + "  Base item: " + p.getBaseItemName());
+        }
+    }
 
 //getters and setters
     public double getTotalcost() { //use these for store comparisons

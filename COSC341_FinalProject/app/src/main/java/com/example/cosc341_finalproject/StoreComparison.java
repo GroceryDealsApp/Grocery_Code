@@ -50,6 +50,16 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
             Global.carts.add(storecart);
         }
 
+        //for fixing bug
+        TextView trantext = findViewById(R.id.Transport);
+        String test = "";
+        /*for (storeCart storecart : Global.carts) {
+            test += storecart.getCartItems().get(0).getFullName() + "\n";
+        }*/
+        /*for (Store store : Global.stores) {
+        test += store.getStorename() + "\n";
+        }
+        trantext.setText(test); */
 
         cards = findViewById(R.id.cards);
         updateStoreCards();
@@ -86,7 +96,7 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
             //tvf.setText(test);
             storeCart storecart = Global.carts.get(i);
             if (storecart.isCartAbleToBeFilled()) {
-
+                //storecart.listItems();
                 CardView newCard = new CardView(StoreComparison.this);
                 getLayoutInflater().inflate(R.layout.card_base_storecomparison, newCard);
 
