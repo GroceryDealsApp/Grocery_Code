@@ -20,9 +20,12 @@ public class ReplaceItem extends AppCompatActivity {
 
     LinearLayoutCompat cards;
     String baseItem = "";
+    String fullNameItemToBeReplaced = "";
+    String BaseItemToBeReplaced = "";
+    String storeOfItem = "";
     String brand = "";
     int weight = 0;
-
+    List<Product> prodsFromStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,9 @@ public class ReplaceItem extends AppCompatActivity {
 
         Intent intent = getIntent();
         String storeName = intent.getStringExtra("store"); //receive the store name
+        fullNameItemToBeReplaced = intent.getStringExtra("productname");
+        BaseItemToBeReplaced = intent.getStringExtra("baseitem");
+        storeOfItem = intent.getStringExtra("store");
         //find the correct storecart
         storeCart storecart = null;
         for (storeCart cartThatMightMatch : Global.carts) {
@@ -38,8 +44,12 @@ public class ReplaceItem extends AppCompatActivity {
                 storecart = cartThatMightMatch;
             }
         }
+        prodsFromStore = storecart.getCartItems();
+        //set prodsFromStore to all prods with same base item
+        prodsFromStore = prodsFromStore.get(0).getProductsByBaseItemFromStore(BaseItemToBeReplaced,storeOfItem);
 
-        List<Product> prods = storecart.getCartItems();
+        TextView replaceText = findViewById(R.id.textReplaceItem);
+        replaceText.setText("Replace " + fullNameItemToBeReplaced+ " with\n another item from the same store?");
 
         EditText brandEditText = (EditText) findViewById(R.id.brandNameSearch);
         brandEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -89,7 +99,7 @@ public class ReplaceItem extends AppCompatActivity {
     }
 
     public void updateCards(){
-        List<Product> prods = Product.getProductsByBaseItem(baseItem);
+        List<Product> prods = prodsFromStore;
         if(brand.length() > 1){
             prods = Product.getProductsByBrand(brand,prods);
         }
@@ -118,7 +128,7 @@ public class ReplaceItem extends AppCompatActivity {
             int resID = getResources().getIdentifier(imageName, "drawable", getPackageName());
             v.setImageResource(resID);
 
-            itemName.setText(p.getFullName());
+            itemName.setText(p.getFullName() + p.getStore());
             weight.setText(p.getFormattedWeight());
             value.setText(p.getFormattedValue());
             price.setText(p.getFormattedPrice());

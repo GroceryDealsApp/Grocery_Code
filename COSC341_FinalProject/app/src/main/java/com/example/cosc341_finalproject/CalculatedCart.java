@@ -83,8 +83,9 @@ public class CalculatedCart extends AppCompatActivity {
             swapbutt.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), ReplaceItem.class);
-                    //intent.putExtra("store", storecart.getStore());
-
+                    intent.putExtra("store", storeName);
+                    intent.putExtra("productname", p.getFullName());
+                    intent.putExtra("baseitem",p.getBaseItemName());
                     startActivity(intent);
                 }
             });

@@ -40,6 +40,28 @@ public class Product {
         }
         return things;
     }
+    static public List<Product> getProductsByBaseItemFromStore(String base, String store){
+        List<Product> things = new ArrayList<>();
+        int total = Global.products.size();
+        for (int i = 0; i < total; i++) {
+            Product p = Global.products.get(i);
+            if((p.getBaseItemName().toLowerCase()).contains(base.toLowerCase()) && (p.getStore().toLowerCase()).contains(store.toLowerCase())){
+                things.add(p);
+            }
+        }
+        return things;
+    }
+    static public List<Product> getProductsByBaseItem(String base, List<Product> existingList){
+        List<Product> things = new ArrayList<>();
+        int total = existingList.size();
+        for (int i = 0; i < total; i++) {
+            Product p = existingList.get(i);
+            if((p.getBaseItemName().toLowerCase()).contains(base.toLowerCase())){
+                things.add(p);
+            }
+        }
+        return things;
+    }
 
     static public List<Product> getProductsByBrand(String brand){
         List<Product> things = new ArrayList<>();
