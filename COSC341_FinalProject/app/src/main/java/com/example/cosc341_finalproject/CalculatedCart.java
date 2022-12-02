@@ -30,7 +30,6 @@ public class CalculatedCart extends AppCompatActivity {
     double totalPrice = 0;
     TextView TotalCalc;
     String storeName = "placeholder";
-    Product flagged;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +38,22 @@ public class CalculatedCart extends AppCompatActivity {
 
         Intent intent = getIntent();
         storeName = intent.getStringExtra("store"); //receive the store name
-        TextView storeNameText =  findViewById(R.id.StoreNameCalc);
+        TextView storeNameText = findViewById(R.id.StoreNameCalc);
         storeNameText.setText(storeName);
         //find the correct storecart
         storeCart storecart = null;
         for (storeCart cartThatMightMatch : Global.carts) {
-            if (cartThatMightMatch.getStore().equals(storeName)){
+            if (cartThatMightMatch.getStore().equals(storeName)) {
                 storecart = cartThatMightMatch;
             }
         }
 
         List<Product> prods = storecart.getCartItems();
-       // buttonSwap = findViewById(R.id.SwapButton1);
+        // buttonSwap = findViewById(R.id.SwapButton1);
         TotalCalc = findViewById(R.id.TotalCalc);
         int total = prods.size();
         cards = findViewById(R.id.cards);
         for (int i = 0; i < total; i++) {
-            flagged = Global.products.get(i);
             CardView newCard = new CardView(CalculatedCart.this);
             getLayoutInflater().inflate(R.layout.card_swap, newCard);
 
@@ -63,11 +61,8 @@ public class CalculatedCart extends AppCompatActivity {
             TextView weight = newCard.findViewById(R.id.Weight1);
             TextView value = newCard.findViewById(R.id.Value1);
             TextView price = newCard.findViewById(R.id.Price1);
-
-            ImageButton FlagButton= newCard.findViewById(R.id.FlagButton);
-
+            ImageButton FlagButton = newCard.findViewById(R.id.FlagButton);
             Button swapbutt = newCard.findViewById(R.id.SwapButton);
-
             ImageView v = newCard.findViewById(R.id.itemImage1);
 
             Product p = prods.get(i);
@@ -78,17 +73,16 @@ public class CalculatedCart extends AppCompatActivity {
 
 
             FlagButton.setOnClickListener(new View.OnClickListener() {
-                @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), ReportItem.class);
-
-                    intent.putExtra("NameofItem", flagged.getFullName());
-                    intent.putExtra("StoreofItem", flagged.getStore());
+                    intent.putExtra("NameofItem", p.getFullName());
+                    intent.putExtra("StoreofItem", p.getStore());
+                    startActivity(intent);
                 }
-                });
+            });
             swapbutt.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), CalculatedCart.class);
+                    Intent intent = new Intent(v.getContext(), ReplaceItem.class);
                     //intent.putExtra("store", storecart.getStore());
 
                     startActivity(intent);
@@ -102,41 +96,35 @@ public class CalculatedCart extends AppCompatActivity {
             cards.addView(newCard);
 
 
-
         }
         String pp = "Grand total: " + storecart.getTotalcostFormatted();
         TotalCalc.setText(pp);
-         DoneButton = findViewById(R.id.DoneButton);
-         DoneButton.setVisibility(View.VISIBLE);
-       DoneButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               FragmentManager fragmentManager = getSupportFragmentManager();
-               fragmentManager.beginTransaction()
-                       .replace(R.id.fragmentContainerView2, SaveCartQuestion.class, null)
-                       .setReorderingAllowed(true)
-                       .addToBackStack("name")
-                       .commit();
+        DoneButton = findViewById(R.id.DoneButton);
+        DoneButton.setVisibility(View.VISIBLE);
+        DoneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView2, SaveCartQuestion.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("name")
+                        .commit();
 
 
-               DoneButton.setVisibility(View.GONE);
+                DoneButton.setVisibility(View.GONE);
 
-           }
-       });
-
-
-        }
-    public void onBack(View view){
-        finish();
+            }
+        });
 
 
     }
 
+    public void onBack(View view) {
+        finish();
 
 
-
-
-
+    }
 
 
 }

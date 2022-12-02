@@ -29,6 +29,17 @@ public class ReplaceItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_replace_item);
 
+        Intent intent = getIntent();
+        String storeName = intent.getStringExtra("store"); //receive the store name
+        //find the correct storecart
+        storeCart storecart = null;
+        for (storeCart cartThatMightMatch : Global.carts) {
+            if (cartThatMightMatch.getStore().equals(storeName)){
+                storecart = cartThatMightMatch;
+            }
+        }
+
+        List<Product> prods = storecart.getCartItems();
 
         EditText brandEditText = (EditText) findViewById(R.id.brandNameSearch);
         brandEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
