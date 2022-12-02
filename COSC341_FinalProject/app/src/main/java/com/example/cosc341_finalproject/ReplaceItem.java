@@ -135,6 +135,10 @@ public class ReplaceItem extends AppCompatActivity {
             weight.setText(p.getFormattedWeight());
             value.setText(p.getFormattedValue());
             price.setText(p.getFormattedPrice());
+
+            if (p.getFullName().equals(fullNameItemToBeReplaced)) {
+                swapbutt.setVisibility(View.INVISIBLE);
+            } else{
             swapbutt.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     cartProds.replaceItem(fullNameItemToBeReplaced, p);
@@ -143,6 +147,7 @@ public class ReplaceItem extends AppCompatActivity {
                     finish();
                 }
             });
+            }
 
             newCard.setTag(i);
             cards.addView(newCard);
