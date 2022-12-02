@@ -110,12 +110,14 @@ public class Product {
         return things;
     }
 
-    static public List<Product> getProductCloseToWeight(int weightInGrams, List<Product> existingList){
+    static public List<Product> getProductCloseToWeight(double weightInGrams, List<Product> existingList){
         List<Product> things = new ArrayList<>();
         int total = existingList.size();
         for (int i = 0; i < total; i++) {
             Product p = existingList.get(i);
-            if(p.getWeight() < weightInGrams + 1000 && p.getWeight() > weightInGrams - 1000){
+            double lower = weightInGrams - (weightInGrams * 0.25);
+            double higher = weightInGrams + (weightInGrams * 0.25);
+            if(p.getWeight() < higher && p.getWeight() > lower){
                 things.add(p);
             }
         }
