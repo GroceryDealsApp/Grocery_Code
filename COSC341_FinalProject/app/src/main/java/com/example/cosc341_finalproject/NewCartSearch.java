@@ -61,12 +61,11 @@ public class NewCartSearch extends AppCompatActivity {
 
     public void updateCards () {
         List<Product> prods = Product.getProductsByFullName("");
+        System.out.println("click with " + fullname);
         if(fullname.length()>1){
             prods = Product.getProductsByFullName(fullname, prods);
         }
-        else {
-            clearCards();
-        }
+        clearCards();
 
         int total = prods.size();
         cards = findViewById(R.id.cards);

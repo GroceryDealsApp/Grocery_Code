@@ -60,8 +60,8 @@
         android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Please press enter to see List"
-        android:inputType="textPersonName"
-        android:onClick="onSearchClick"
+        android:imeOptions="actionDone"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Title" />
 
