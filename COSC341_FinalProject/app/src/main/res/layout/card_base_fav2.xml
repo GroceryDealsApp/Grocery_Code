@@ -22,10 +22,58 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Item1"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="171dp"
+            android:layout_marginTop="-17dp"
             android:layout_toEndOf="@+id/itemImage1"
             android:text="Weight"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/pricetext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Item1"
+            android:layout_marginStart="102dp"
+            android:layout_marginTop="-16dp"
+            android:layout_toEndOf="@+id/itemImage1"
+            android:text="price"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/bestValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/bestValueText2"
+            android:layout_alignBottom="@+id/bestValueText2"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/itemImage1"
+            android:text="bestvalue"
+            android:textColor="#2DF600" />
+
+        <TextView
+            android:id="@+id/bestValueText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Item1"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/itemImage1"
+            android:text="Best Value:"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/bestStorename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Item1"
+            android:layout_alignBottom="@+id/bestValueText"
+            android:layout_marginStart="146dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/itemImage1"
+            android:text="at storename"
             android:textColor="#FFFFFF" />
 
         <TextView
@@ -40,22 +88,38 @@
 
         <ImageView
             android:id="@+id/itemImage1"
-            android:layout_width="73dp"
-            android:layout_height="61dp"
+            android:layout_width="57dp"
+            android:layout_height="54dp"
             android:layout_below="@+id/Item1"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/button_border" />
 
         <Button
             android:id="@+id/DeleteFavButton"
-            android:layout_width="wrap_content"
+            android:layout_width="57dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="260dp"
-            android:layout_marginTop="30dp"
+            android:layout_below="@+id/ButtonNotif"
+            android:layout_alignStart="@+id/ButtonNotif"
+            android:layout_marginStart="-7dp"
+            android:layout_marginTop="-5dp"
             android:backgroundTint="#800303"
             android:backgroundTintMode="add"
             android:text="Delete"
+            android:textSize="10sp"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/seeStoresButton"
+            android:layout_width="167dp"
+            android:layout_height="40dp"
+            android:layout_alignTop="@+id/Weight1"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="41dp"
+            android:layout_toEndOf="@+id/itemImage1"
+            android:backgroundTint="#3F51B5"
+            android:backgroundTintMode="add"
+            android:text="See stores"
             android:textSize="14sp"
             app:cornerRadius="10dp" />
 

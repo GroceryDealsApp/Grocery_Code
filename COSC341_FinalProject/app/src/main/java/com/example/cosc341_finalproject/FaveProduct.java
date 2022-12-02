@@ -8,7 +8,7 @@ public class FaveProduct {
     private String fullName = "";
     private boolean notifEnabled = true; //notifications are enabled by default
     private int weight = 0;
-    private double bestValue = 0.0; //unused atm, TODO: make the favourite item cards show which store has the item for the best value (also change stuff in fave search)
+    private Product bestProduct;
     private int daysLeft = 0; //unused, to be used with bestValue to show how long the bestValue is valid for
     private String weightUnit = "kg";
     private String filename = "";
@@ -18,10 +18,22 @@ public class FaveProduct {
         this.setNotifEnabled(notifEnabled);
         this.setWeight(weight);
         this.setFilename(filename);
+        updateBestProduct();
     }
 
 
-    //global filter functions
+    //update the FaveProduct bestProduct with whatever has most value
+    private void updateBestProduct() {
+        List<Product> allProdsWithSameName = Product.getProductsByFullName(fullName);
+        bestProduct = allProdsWithSameName.get(0);
+        for (Product p : allProdsWithSameName) {
+            if (bestProduct.getValue() > p.getValue()) {
+                bestProduct = p;
+            }
+        }
+    }
+
+    //i think these two methods below don't actually work lol
     static public List<FaveProduct> getProductsByFullName(String fullname){
         List<FaveProduct> things = new ArrayList<>();
         int total = Global.products.size();
@@ -91,4 +103,11 @@ public class FaveProduct {
         this.filename = filename;
     }
 
+    public Product getBestProduct() {
+        return bestProduct;
+    }
+
+    public void setBestProduct(Product bestProduct) {
+        this.bestProduct = bestProduct;
+    }
 }

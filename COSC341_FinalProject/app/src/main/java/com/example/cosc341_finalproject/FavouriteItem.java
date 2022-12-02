@@ -16,6 +16,9 @@ import java.io.InputStreamReader;
 
 public class FavouriteItem extends AppCompatActivity {
 
+    //
+    // READ: This is manjot's code, we unfortunately couldn't get it working but it's here if you'd like to see
+    //
     ArrayList<String[]> lines = new ArrayList<String[]>();
     String searchTerm = "";
     String results = "";
