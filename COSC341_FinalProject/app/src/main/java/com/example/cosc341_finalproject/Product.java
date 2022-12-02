@@ -1,5 +1,6 @@
 package com.example.cosc341_finalproject;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -111,7 +112,8 @@ public class Product {
         return currFormat.format(this.getValue()) + "/100g";
     }
     public String getFormattedWeight(){
-        return String.valueOf(this.getWeight()/1000) + " " + weightUnit;
+        DecimalFormat df = new DecimalFormat("#.#");
+        return String.valueOf(df.format((double)this.getWeight()/(double)1000)) + " " + weightUnit;
     }
     public String getFullName(){
         return this.getBrandName() + " " + this.getBaseItemName();
