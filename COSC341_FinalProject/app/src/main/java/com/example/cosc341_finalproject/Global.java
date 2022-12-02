@@ -1,13 +1,7 @@
 package com.example.cosc341_finalproject;
 
-import android.content.res.Resources;
-
-import androidx.appcompat.widget.LinearLayoutCompat;
-
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class Global { //this is essentially like our database lol
     public static List<String> newcart_items = new ArrayList<>();
@@ -19,5 +13,7 @@ public class Global { //this is essentially like our database lol
     public static boolean check1 = true;
     public static boolean check2 = false;
     public static boolean check3 = true;
-
+    public static List<ArrayList<String>> listOfSavedCarts = new ArrayList<ArrayList<String>>();
+    public static String itemsforsavecart;
+    public static List<SavedStoreCarts> SavedCarts = new ArrayList<SavedStoreCarts>();
 }

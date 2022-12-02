@@ -33,6 +33,7 @@ public class CalculatedCart extends AppCompatActivity {
     String storeName = "placeholder";
     storeCart storecart = null;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +43,7 @@ public class CalculatedCart extends AppCompatActivity {
         storeName = intent.getStringExtra("store"); //receive the store name
         TextView storeNameText = findViewById(R.id.StoreNameCalc);
         storeNameText.setText(storeName);
-
-
+        Global.itemsforsavecart = "";
         cards = findViewById(R.id.cards);
         updateCards();
 
@@ -110,6 +110,12 @@ public class CalculatedCart extends AppCompatActivity {
                 }
             });
             itemName.setText(p.getFullName());
+            if(Global.itemsforsavecart.length() ==0){
+                Global.itemsforsavecart = p.getFullName();
+            }
+            else{
+                Global.itemsforsavecart += ", " + p.getFullName();
+            }
             weight.setText(p.getFormattedWeight());
             value.setText(p.getFormattedValue());
             price.setText(p.getFormattedPrice());
