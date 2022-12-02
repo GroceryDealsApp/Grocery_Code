@@ -27,8 +27,8 @@ public class ActivityHome extends AppCompatActivity {
             Global.firstRun = true;
         }
 
-      // Intent intent = new Intent(this, ReportItem.class);
-     //   startActivity(intent);
+       //Intent intent = new Intent(this, ReplaceItem.class);
+        //startActivity(intent);
 
         //ImageButton btn = (ImageButton) findViewById(R.id.buttonNewCart);
         //int width = getResources().getDisplayMetrics().widthPixels/3;
@@ -42,17 +42,19 @@ public class ActivityHome extends AppCompatActivity {
         try {
             input = assetManager.open("Items.csv");
 
-            Scanner s = new Scanner(input).useDelimiter(",");
+            Scanner s = new Scanner(input);
             s.nextLine(); // skip csv headers
+            int i = 0;
             while (s.hasNextLine()) {
-                s.nextLine();
-                String brand = s.next();
-                String base = s.next();
-                double price = s.nextDouble();
-                int weight = s.nextInt();
-                double value = s.nextDouble();
-                String store = s.next();
-                String fileName = s.next();
+                String line = s.nextLine();
+                String[] stuff = line.split(",");
+                String brand = stuff[0];
+                String base = stuff[1];
+                double price = Double.parseDouble(stuff[2]);
+                int weight = Integer.parseInt(stuff[3]);
+                double value = Double.parseDouble(stuff[4]);
+                String store = stuff[5];
+                String fileName = stuff[6];
                 Product p = new Product(brand,base,price,weight,value,store,fileName);
                 p.addItemToGlobalVar();
                 //add stores
