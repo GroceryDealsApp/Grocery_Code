@@ -13,6 +13,13 @@
         android:theme="@style/Theme.COSC341_FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".FavouriteItemStores"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".NewCartSearch"
             android:exported="false">
             <meta-data

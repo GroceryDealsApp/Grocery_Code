@@ -62,11 +62,14 @@ public class FavouriteItemv22 extends AppCompatActivity {
 
             TextView itemName = newCard.findViewById(R.id.Item1);
             TextView weight = newCard.findViewById(R.id.Weight1);
-            //TextView value = newCard.findViewById(R.id.Value1);
-            //TextView price = newCard.findViewById(R.id.Price1);
+            TextView bestValueText = newCard.findViewById(R.id.bestValueText);
+            TextView price = newCard.findViewById(R.id.pricetext1);
+            TextView bestStore = newCard.findViewById(R.id.bestStorename);
             ImageView v = newCard.findViewById(R.id.itemImage1);
             Button delButt = newCard.findViewById(R.id.DeleteFavButton);
+            //TODO: change delete favourite item button to a trashcan instead of text in order to savespace
             ImageButton notifButt = newCard.findViewById(R.id.ButtonNotif);
+            Button seeStoresButt = newCard.findViewById(R.id.seeStoresButton);
 
             FaveProduct p = Global.faves.get(i);
 
@@ -85,12 +88,23 @@ public class FavouriteItemv22 extends AppCompatActivity {
                 bellID = getResources().getIdentifier("notif_disabled", "drawable", getPackageName());
             }
             notifButt.setImageResource(bellID);
-            //value.setText(p.getFormattedValue());
-            //price.setText(p.getFormattedPrice());
+
+            bestValueText.setText(p.getBestProduct().getFormattedValue());
+            bestStore.setText(" at " + p.getBestProduct().getStore());
+            price.setText(p.getBestProduct().getFormattedPrice());
+
+
             delButt.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Global.faves.remove(Global.faves.indexOf(p));
                     updateFavCards();
+                }
+            });
+            seeStoresButt.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), FavouriteItemStores.class);
+                    intent.putExtra("NameofItem", p.getFullName());
+                    startActivity(intent);
                 }
             });
             notifButt.setOnClickListener(new View.OnClickListener() {
