@@ -93,6 +93,32 @@ public class storeCart {
         //listItems();
     }
 
+    public Product findProductByName(String name) {
+        Product theP = null;
+        for (Product p : cartItems) {
+            if (p.getFullName().equals(name)) {
+                theP = p;
+            }
+        }
+        return theP;
+    }
+    public int findIndexByName(String name) {
+        int index = 0;
+        int size = cartItems.size();
+        for (int i = 0; i < size; i++) {
+            Product potentiallyCorrectProduct = cartItems.get(i);
+            if (potentiallyCorrectProduct.getFullName().equals(name)) {
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    public void replaceItem(String fullNameItemToBeReplaced, Product newItem) {
+        int indexOfItemToBeReplaced = findIndexByName(fullNameItemToBeReplaced);
+        cartItems.set(indexOfItemToBeReplaced,newItem);
+    }
+
     //other methods
     private void updateTotalCost() {
         totalcost = 0;
@@ -111,6 +137,8 @@ public class storeCart {
         updateTotalWeight();
         totalvalue = (totalcost/totalweight)*100; // $ per 100g i think
     }
+
+
 
     public void listItems() {
         System.out.println(getStore());

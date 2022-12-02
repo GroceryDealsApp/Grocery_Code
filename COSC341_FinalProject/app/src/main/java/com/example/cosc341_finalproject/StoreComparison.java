@@ -124,11 +124,21 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
                     public void onClick(View v) {
                         Intent intent = new Intent(v.getContext(), CalculatedCart.class);
                         intent.putExtra("store", storecart.getStore());
-                        startActivity(intent);
+                        startActivityForResult(intent,4);
                     }
                 });
                 newCard.setTag(i);
                 cards.addView(newCard);
+            }
+        }
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        // check if the request code is same as what is passed  here it is 4
+        if (requestCode == 4) {
+            if(resultCode == RESULT_OK) {
+                updateStoreCards();
             }
         }
     }

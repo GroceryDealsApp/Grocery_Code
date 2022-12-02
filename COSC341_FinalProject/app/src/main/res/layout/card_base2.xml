@@ -17,12 +17,27 @@
         android:layout_height="match_parent"
         android:background="#00897B">
 
+        <Button
+            android:id="@+id/swapButton2"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Item1"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="-25dp"
+            android:layout_toEndOf="@+id/itemImage1"
+            android:backgroundTint="#035C53"
+            android:backgroundTintMode="add"
+            android:text="Replace With This"
+            app:cornerRadius="10dp" />
+
         <TextView
             android:id="@+id/Weight1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="54dp"
+            android:layout_toEndOf="@+id/itemImage1"
             android:text="Weight"
             android:textColor="#FFFFFF" />
 
@@ -49,8 +64,9 @@
             android:id="@+id/Value1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_alignTop="@+id/Weight1"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="0dp"
             android:layout_toEndOf="@+id/Weight1"
             android:text="ValueofItem"
             android:textColor="#FFFFFF" />
@@ -59,8 +75,9 @@
             android:id="@+id/Price1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_alignTop="@+id/Value1"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="1dp"
             android:layout_toEndOf="@+id/Value1"
             android:text="Price"
             android:textColor="#FFFFFF" />

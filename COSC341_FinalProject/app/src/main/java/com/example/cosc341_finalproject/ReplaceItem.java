@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class ReplaceItem extends AppCompatActivity {
     String brand = "";
     int weight = 0;
     List<Product> prodsFromStore;
+    storeCart cartProds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +46,9 @@ public class ReplaceItem extends AppCompatActivity {
                 storecart = cartThatMightMatch;
             }
         }
-        prodsFromStore = storecart.getCartItems();
-        //set prodsFromStore to all prods with same base item
-        prodsFromStore = prodsFromStore.get(0).getProductsByBaseItemFromStore(BaseItemToBeReplaced,storeOfItem);
+        cartProds = storecart;
+        //set prodsFromStore to all prods with same base item from the same store
+        prodsFromStore = cartProds.getCartItems().get(0).getProductsByBaseItemFromStore(BaseItemToBeReplaced,storeOfItem);
 
         TextView replaceText = findViewById(R.id.textReplaceItem);
         replaceText.setText("Replace " + fullNameItemToBeReplaced+ " with\n another item from the same store?");
@@ -121,6 +123,7 @@ public class ReplaceItem extends AppCompatActivity {
             TextView value = newCard.findViewById(R.id.Value1);
             TextView price = newCard.findViewById(R.id.Price1);
             ImageView v = newCard.findViewById(R.id.itemImage1);
+            Button swapbutt = newCard.findViewById(R.id.swapButton2);
 
             Product p = prods.get(i);
 
@@ -132,6 +135,14 @@ public class ReplaceItem extends AppCompatActivity {
             weight.setText(p.getFormattedWeight());
             value.setText(p.getFormattedValue());
             price.setText(p.getFormattedPrice());
+            swapbutt.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    cartProds.replaceItem(fullNameItemToBeReplaced, p);
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
 
             newCard.setTag(i);
             cards.addView(newCard);

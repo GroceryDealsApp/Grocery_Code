@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -30,6 +31,7 @@ public class CalculatedCart extends AppCompatActivity {
     double totalPrice = 0;
     TextView TotalCalc;
     String storeName = "placeholder";
+    storeCart storecart = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +42,26 @@ public class CalculatedCart extends AppCompatActivity {
         storeName = intent.getStringExtra("store"); //receive the store name
         TextView storeNameText = findViewById(R.id.StoreNameCalc);
         storeNameText.setText(storeName);
+
+
+        cards = findViewById(R.id.cards);
+        updateCards();
+
+
+    }
+    public void clearCards(){
+        int count = cards.getChildCount();
+        View v = null;
+        for(int i=count-1; i>=0; i--) {
+            v = cards.getChildAt(i);
+            ((ViewGroup) v.getParent()).removeView(v);
+        }
+    }
+
+    public void updateCards() {
+        clearCards();
         //find the correct storecart
-        storeCart storecart = null;
+        storecart = null;
         for (storeCart cartThatMightMatch : Global.carts) {
             if (cartThatMightMatch.getStore().equals(storeName)) {
                 storecart = cartThatMightMatch;
@@ -86,7 +106,7 @@ public class CalculatedCart extends AppCompatActivity {
                     intent.putExtra("store", storeName);
                     intent.putExtra("productname", p.getFullName());
                     intent.putExtra("baseitem",p.getBaseItemName());
-                    startActivity(intent);
+                    startActivityForResult(intent,3);
                 }
             });
             itemName.setText(p.getFullName());
@@ -117,14 +137,24 @@ public class CalculatedCart extends AppCompatActivity {
 
             }
         });
-
-
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        // check if the request code is same as what is passed  here it is 3
+        if (requestCode == 3) {
+            if(resultCode == RESULT_OK) {
+                updateCards();
+            }
+        }
+    }
+
+
     public void onBack(View view) {
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
         finish();
-
-
     }
 
 
