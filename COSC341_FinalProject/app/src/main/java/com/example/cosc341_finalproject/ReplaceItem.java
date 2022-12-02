@@ -24,7 +24,7 @@ public class ReplaceItem extends AppCompatActivity {
     String BaseItemToBeReplaced = "";
     String storeOfItem = "";
     String brand = "";
-    int weight = 0;
+    double weight = 0;
     List<Product> prodsFromStore;
 
     @Override
@@ -72,7 +72,7 @@ public class ReplaceItem extends AppCompatActivity {
                 boolean handled = false;
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     try {
-                        weight = Integer.parseInt(v.getText().toString());
+                        weight = Double.parseDouble(v.getText().toString());
                     } catch (Exception e){
                         weight = 0;
                     }
