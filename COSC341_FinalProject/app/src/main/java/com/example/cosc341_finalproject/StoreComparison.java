@@ -51,8 +51,8 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
         }
 
         //for fixing bug
-        TextView trantext = findViewById(R.id.Transport);
-        String test = "";
+       // TextView trantext = findViewById(R.id.Transport);
+       // String test = "";
         /*for (storeCart storecart : Global.carts) {
             test += storecart.getCartItems().get(0).getFullName() + "\n";
         }*/
