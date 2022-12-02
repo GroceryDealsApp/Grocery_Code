@@ -16,5 +16,8 @@ public class Global { //this is essentially like our database lol
     public static List<storeCart> carts = new ArrayList<>();
     public static List<FaveProduct> faves = new ArrayList<>();
     public static List<Store> stores = new ArrayList<>();
+    public static boolean check1 = true;
+    public static boolean check2 = false;
+    public static boolean check3 = true;
 
 }
