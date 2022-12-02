@@ -63,7 +63,7 @@ public class ReplaceItem extends AppCompatActivity {
         });
 
         cards = findViewById(R.id.cards);
-        baseItem = "rice";
+        baseItem = "";
         updateCards();
 
     }

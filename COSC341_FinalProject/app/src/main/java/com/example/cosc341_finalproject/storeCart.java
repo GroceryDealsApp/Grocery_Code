@@ -54,7 +54,7 @@ public class storeCart {
                             alreadyadded=true;
                     }
                     if (!alreadyadded)
-                    userCartProds.add(p);
+                        userCartProds.add(p);
                 }
             }
         }

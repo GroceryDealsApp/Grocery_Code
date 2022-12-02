@@ -63,7 +63,11 @@ public class CalculatedCart extends AppCompatActivity {
             TextView weight = newCard.findViewById(R.id.Weight1);
             TextView value = newCard.findViewById(R.id.Value1);
             TextView price = newCard.findViewById(R.id.Price1);
+
             ImageButton FlagButton= newCard.findViewById(R.id.FlagButton);
+
+            Button swapbutt = newCard.findViewById(R.id.SwapButton);
+
             ImageView v = newCard.findViewById(R.id.itemImage1);
 
             Product p = prods.get(i);
@@ -72,6 +76,7 @@ public class CalculatedCart extends AppCompatActivity {
             int resID = getResources().getIdentifier(imageName, "drawable", getPackageName());
             v.setImageResource(resID);
 
+
             FlagButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -79,6 +84,13 @@ public class CalculatedCart extends AppCompatActivity {
 
                     intent.putExtra("NameofItem", flagged.getFullName());
                     intent.putExtra("StoreofItem", flagged.getStore());
+                }
+                });
+            swapbutt.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), CalculatedCart.class);
+                    //intent.putExtra("store", storecart.getStore());
+
                     startActivity(intent);
                 }
             });

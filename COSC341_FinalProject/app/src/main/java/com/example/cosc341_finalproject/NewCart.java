@@ -58,8 +58,17 @@ public class NewCart extends AppCompatActivity {
             for (int i = 0; i < totalprods; i++) {
                 Product p = Global.products.get(i);
                 if ((p.getFullName().toLowerCase()).contains(item.toLowerCase())) {
-                    prods.add(p);
+                    //check to see if it was already added (dirty fix, better fix is to make newcart_items have usercart_items instead of Strings
+                    boolean alreadyadded = false;
+                    for (int j = 0; j < prods.size(); j++) {
+                        Product prodAlreadyInCart = prods.get(j);
+                        if (prodAlreadyInCart.getFullName().equals(p.getFullName()))
+                            alreadyadded=true;
+                    }
+                    if (!alreadyadded)
+                        prods.add(p);
                 }
+
             }
         }
         //ncText.setText(test);
