@@ -131,7 +131,7 @@ public class ReplaceItem extends AppCompatActivity {
             int resID = getResources().getIdentifier(imageName, "drawable", getPackageName());
             v.setImageResource(resID);
 
-            itemName.setText(p.getFullName() + p.getStore());
+            itemName.setText(p.getFullName());
             weight.setText(p.getFormattedWeight());
             value.setText(p.getFormattedValue());
             price.setText(p.getFormattedPrice());
