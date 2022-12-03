@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewCart extends AppCompatActivity {
@@ -187,6 +188,7 @@ public class NewCart extends AppCompatActivity {
         }*/
 
         public void onBackNewClick (View view){
+            Global.newcart_items = new ArrayList<>();
             finish();
         }
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
@@ -209,6 +211,11 @@ public class NewCart extends AppCompatActivity {
             startActivity(intent);
         }
 
+        public void onSaveForLater(View view) {
+            Button saveForLaterButt = findViewById(R.id.buttonSaveForLater);
+            saveForLaterButt.setText("Saved!");
+            Global.SavedCarts.add(new SavedStoreCarts(Global.newcart_items)); //save the cart
+        }
 
 
     }

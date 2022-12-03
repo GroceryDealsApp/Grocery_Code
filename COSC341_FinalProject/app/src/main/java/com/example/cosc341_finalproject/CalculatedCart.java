@@ -43,7 +43,6 @@ public class CalculatedCart extends AppCompatActivity {
         storeName = intent.getStringExtra("store"); //receive the store name
         TextView storeNameText = findViewById(R.id.StoreNameCalc);
         storeNameText.setText(storeName);
-        Global.itemsforsavecart = "";
         cards = findViewById(R.id.cards);
         updateCards();
 
@@ -110,12 +109,6 @@ public class CalculatedCart extends AppCompatActivity {
                 }
             });
             itemName.setText(p.getFullName());
-            if(Global.itemsforsavecart.length() ==0){
-                Global.itemsforsavecart = p.getFullName();
-            }
-            else{
-                Global.itemsforsavecart += ", " + p.getFullName();
-            }
             weight.setText(p.getFormattedWeight());
             value.setText(p.getFormattedValue());
             price.setText(p.getFormattedPrice());
@@ -162,6 +155,23 @@ public class CalculatedCart extends AppCompatActivity {
         setResult(RESULT_OK, intent);
         finish();
     }
+    public void onYesClick(View view) {
+        Global.SavedCarts.add(new SavedStoreCarts(Global.newcart_items)); //save the cart
+        Intent intent = new Intent(getApplicationContext(), ActivityHome.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    public void onNoClick(View view) {
+        Intent intent = new Intent(getApplicationContext(), ActivityHome.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    //public void onCancelClick(View view) {
+    //
+    //}
+
 
 
 }

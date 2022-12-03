@@ -14,9 +14,6 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public class ActivityHome extends AppCompatActivity {
-    Bundle bundle;
-    String value;
-    SavedStoreCarts s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +21,6 @@ public class ActivityHome extends AppCompatActivity {
         if(!Global.firstRun){
             loadData();
             Global.firstRun = true;
-        }
-        Bundle bundle = getIntent().getExtras();
-        if(bundle != null){
-            value = bundle.getString("savedcart");
-            s = new SavedStoreCarts(value);
-            Global.SavedCarts.add(s);
         }
 
        //Intent intent = new Intent(this, ReplaceItem.class);

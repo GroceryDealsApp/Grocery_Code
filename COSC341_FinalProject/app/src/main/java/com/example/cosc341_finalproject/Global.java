@@ -13,7 +13,5 @@ public class Global { //this is essentially like our database lol
     public static boolean check1 = true;
     public static boolean check2 = false;
     public static boolean check3 = true;
-    public static List<ArrayList<String>> listOfSavedCarts = new ArrayList<ArrayList<String>>();
-    public static String itemsforsavecart;
     public static List<SavedStoreCarts> SavedCarts = new ArrayList<SavedStoreCarts>();
 }

@@ -1,32 +1,35 @@
 package com.example.cosc341_finalproject;
 
+import java.util.List;
+
 public class SavedStoreCarts {
     private String Name;
-    private String items;
+    private List<String> items;
 
     public String getName() {
         return Name;
-    }
-
-    public String getItems() {
-        return items;
     }
 
     public void setName(String name) {
         Name = name;
     }
 
-    public void setItems(String items) {
-        this.items = items;
-    }
 
-    public SavedStoreCarts(String name, String items) {
+    public SavedStoreCarts(String name, List<String> items) {
         Name = name;
         this.items = items;
     }
 
-    public SavedStoreCarts(String items) {
+    public SavedStoreCarts(List<String> items) {
         this.items = items;
         this.Name = "";
+    }
+
+    public List<String> getItems() {
+        return items;
+    }
+
+    public void setItems(List<String> items) {
+        this.items = items;
     }
 }

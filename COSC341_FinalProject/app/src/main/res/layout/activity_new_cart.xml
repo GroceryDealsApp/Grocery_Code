@@ -79,4 +79,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/buttonSaveForLater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="#876BB8"
+        android:onClick="onSaveForLater"
+        android:text="Save for later?"
+        app:layout_constraintBottom_toBottomOf="@+id/DoneButtonNew"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/DoneButtonNew" />
 </androidx.constraintlayout.widget.ConstraintLayout>

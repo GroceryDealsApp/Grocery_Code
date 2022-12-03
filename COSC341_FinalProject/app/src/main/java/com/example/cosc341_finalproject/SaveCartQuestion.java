@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SaveCartQuestion#newInstance} factory method to
@@ -70,8 +72,7 @@ public class SaveCartQuestion extends Fragment {
         CancelBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CalculatedCart.class);
-                startActivity(intent);
+                getActivity().getFragmentManager().popBackStack();
             }
 
 
@@ -79,9 +80,10 @@ public class SaveCartQuestion extends Fragment {
         NoBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-               Intent intent = new Intent(getActivity(), ActivityHome.class);
-               startActivity(intent);
+                Global.newcart_items = new ArrayList<>(); //clear user cart
+                Intent intent = new Intent(view.getContext().getApplicationContext(), ActivityHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
 
 
@@ -89,12 +91,10 @@ public class SaveCartQuestion extends Fragment {
         YesBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String items = Global.itemsforsavecart;
-              //  SavedStoreCarts tmp = new SavedStoreCarts(Global.itemsforsavecart);
-                Intent intent = new Intent(getActivity(), ActivityHome.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("savedcart", items);
-                intent.putExtras(bundle);
+                Global.SavedCarts.add(new SavedStoreCarts(Global.newcart_items)); //save the cart
+                Global.newcart_items = new ArrayList<>(); //clear user cart
+                Intent intent = new Intent(view.getContext().getApplicationContext(), ActivityHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
 
