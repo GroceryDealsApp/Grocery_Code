@@ -66,7 +66,7 @@ public class FavouriteItemv22 extends AppCompatActivity {
             TextView price = newCard.findViewById(R.id.pricetext1);
             TextView bestStore = newCard.findViewById(R.id.bestStorename);
             ImageView v = newCard.findViewById(R.id.itemImage1);
-            Button delButt = newCard.findViewById(R.id.DeleteFavButton);
+            ImageButton delButt = newCard.findViewById(R.id.DeleteFavButton);
             //TODO: change delete favourite item button to a trashcan instead of text in order to savespace
             ImageButton notifButt = newCard.findViewById(R.id.ButtonNotif);
             Button seeStoresButt = newCard.findViewById(R.id.seeStoresButton);

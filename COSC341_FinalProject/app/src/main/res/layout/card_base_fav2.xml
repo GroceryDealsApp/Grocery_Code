@@ -99,20 +99,6 @@
             android:background="@drawable/button_border" />
 
         <Button
-            android:id="@+id/DeleteFavButton"
-            android:layout_width="57dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ButtonNotif"
-            android:layout_alignStart="@+id/ButtonNotif"
-            android:layout_marginStart="-7dp"
-            android:layout_marginTop="-5dp"
-            android:backgroundTint="#800303"
-            android:backgroundTintMode="add"
-            android:text="Delete"
-            android:textSize="10sp"
-            app:cornerRadius="10dp" />
-
-        <Button
             android:id="@+id/seeStoresButton"
             android:layout_width="166dp"
             android:layout_height="33dp"
@@ -134,6 +120,18 @@
             android:backgroundTint="#00FFFFFF"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/notif_enabled" />
+
+        <ImageButton
+            android:id="@+id/DeleteFavButton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/ButtonNotif"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="-1dp"
+            android:layout_toEndOf="@+id/seeStoresButton"
+            android:backgroundTint="#93180F"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/delete" />
 
 
     </RelativeLayout>
