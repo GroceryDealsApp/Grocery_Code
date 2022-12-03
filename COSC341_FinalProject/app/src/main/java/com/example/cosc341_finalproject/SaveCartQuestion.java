@@ -89,7 +89,12 @@ public class SaveCartQuestion extends Fragment {
         YesBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String items = Global.itemsforsavecart;
+              //  SavedStoreCarts tmp = new SavedStoreCarts(Global.itemsforsavecart);
                 Intent intent = new Intent(getActivity(), ActivityHome.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("savedcart", items);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
 

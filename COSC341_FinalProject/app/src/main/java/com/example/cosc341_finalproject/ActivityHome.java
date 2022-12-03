@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -17,7 +14,9 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public class ActivityHome extends AppCompatActivity {
-
+    Bundle bundle;
+    String value;
+    SavedStoreCarts s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +24,12 @@ public class ActivityHome extends AppCompatActivity {
         if(!Global.firstRun){
             loadData();
             Global.firstRun = true;
+        }
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            value = bundle.getString("savedcart");
+            s = new SavedStoreCarts(value);
+            Global.SavedCarts.add(s);
         }
 
        //Intent intent = new Intent(this, ReplaceItem.class);
@@ -99,4 +104,5 @@ public class ActivityHome extends AppCompatActivity {
         Button helpButton = findViewById(R.id.buttonOkay);
         helpButton.setVisibility(View.VISIBLE);
     }
+
 }
