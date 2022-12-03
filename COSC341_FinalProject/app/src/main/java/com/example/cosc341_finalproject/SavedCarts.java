@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,7 @@ public class SavedCarts extends AppCompatActivity {
             EditText cartNameText = newCard.findViewById(R.id.SavedCartText);
             Button startCartButt = newCard.findViewById(R.id.StartCart);
             Button editnamebutt = newCard.findViewById(R.id.EditName);
+            ImageButton deleteButt = newCard.findViewById(R.id.deleteSaveCartButton);
 
             List<String> cartitems = Global.SavedCarts.get(i).getItems();
 
@@ -98,6 +100,12 @@ public class SavedCarts extends AppCompatActivity {
                     Global.newcart_items = cartitems;
                     Intent intent = new Intent(v.getContext(), NewCart.class);
                     startActivity(intent);
+                }
+            });
+            deleteButt.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Global.SavedCarts.remove(Global.SavedCarts.get(finalI));
+                    updateCards();
                 }
             });
 
