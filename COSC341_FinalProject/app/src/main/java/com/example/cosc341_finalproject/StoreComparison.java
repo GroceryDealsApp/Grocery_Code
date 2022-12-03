@@ -5,6 +5,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -21,7 +22,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class StoreComparison extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static Integer[] imageIconDatabase = {R.drawable.walk, R.drawable.bike, R.drawable.bus, R.drawable.car};
@@ -49,8 +54,24 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
             storeCart storecart = new storeCart(store.getStorename());
             Global.carts.add(storecart);
         }
+        //sort carts in order of totalvalue
+        /*int len = Global.carts.size();
+        for (int i=0;i<len-1;++i){
+            for(int j=0;j<len-i-1; ++j){
+                if(Global.carts.get(j+1).getTotalvalue()<Global.carts.get(j).getTotalvalue()){
+                    storeCart swap = Global.carts.get(j);
+                    Global.carts.set(j,Global.carts.get(j+1));
+                    Global.carts.set(j+1,swap);
+                }
+            }
+        }
 
-        //for fixing bug
+         */
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Global.carts.sort(Comparator.comparing(a -> a.getTotalvalue()));
+        }
+
+        //for fixing bug (ignore)
        // TextView trantext = findViewById(R.id.Transport);
        // String test = "";
         /*for (storeCart storecart : Global.carts) {
@@ -110,6 +131,9 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
 
                 storeNameText.setText(storecart.getStore());
                 //TODO: set distance eta text to an actual value from google maps
+                int eta = ThreadLocalRandom.current().nextInt(10, 40);//just setting it to a random value for now
+                NumberFormat formatter = new DecimalFormat("#0.0");
+                distanceEtaText.setText("Distance: " + formatter.format(eta/7.5)+"km   ETA:  "+ eta + "min");
                 totalCostText.setText(storecart.getTotalcostFormatted());
                 totalValueText.setText(storecart.getTotalvalueFormatted());
 
