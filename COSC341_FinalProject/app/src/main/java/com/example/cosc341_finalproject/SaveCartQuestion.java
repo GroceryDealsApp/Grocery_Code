@@ -72,7 +72,8 @@ public class SaveCartQuestion extends Fragment {
         CancelBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getFragmentManager().popBackStack();
+                //Intent intent = new Intent(getActivity(), CalculatedCart.class);
+                //startActivity(intent);
             }
 
 

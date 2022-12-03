@@ -6,10 +6,12 @@
     tools:context=".SaveCartQuestion">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Would you like to save your initial cart first?" />
+        android:text="Would you like to save your initial cart first?"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/CancelBut"
@@ -17,7 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:onClick="onCancelClick"
-        android:text="CANCEL" />
+        android:text="CANCEL"
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/NoBut"
