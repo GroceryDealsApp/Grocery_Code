@@ -6,51 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".ActivityHome">
 
+
     <ImageButton
         android:id="@+id/buttonNewCart"
-        android:layout_width="0dp"
-        android:layout_height="94dp"
-        android:backgroundTint="#4CAF50"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:backgroundTint="#03A9F4"
         android:onClick="pressNewCart"
         android:scaleType="fitXY"
         android:src="@drawable/create_cart"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSavedCarts"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.986"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".333" />
 
-
     <ImageButton
         android:id="@+id/buttonSavedCarts"
-        android:layout_width="0dp"
-        android:layout_height="94dp"
-        android:backgroundTint="#4CAF50"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="192dp"
+        android:backgroundTint="#00897B"
         android:onClick="pressSavedCarts"
         android:scaleType="fitXY"
         android:src="@drawable/saved_carts"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonUser"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.987"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".333" />
 
     <ImageButton
         android:id="@+id/buttonUser"
-        android:layout_width="0dp"
-        android:layout_height="94dp"
-        android:backgroundTint="#4CAF50"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#00897B"
         android:onClick="pressUserSettings"
         android:scaleType="fitXY"
         android:src="@drawable/user"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonSavedCarts"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.987"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".333" />
 
@@ -84,7 +88,8 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonSavedCarts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.241" />
 
     <Button
         android:id="@+id/buttonOkay"
@@ -97,4 +102,36 @@
         app:layout_constraintStart_toStartOf="@+id/textViewhelpHome"
         app:layout_constraintTop_toTopOf="@+id/textViewhelpHome"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create a cart"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNewCart"
+        app:layout_constraintEnd_toEndOf="@+id/buttonNewCart"
+        app:layout_constraintStart_toStartOf="@+id/buttonNewCart" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saved Carts"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSavedCarts"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSavedCarts"
+        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintStart_toStartOf="@+id/buttonSavedCarts" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUser"
+        app:layout_constraintEnd_toEndOf="@+id/buttonUser"
+        app:layout_constraintStart_toStartOf="@+id/buttonUser" />
 </androidx.constraintlayout.widget.ConstraintLayout>
