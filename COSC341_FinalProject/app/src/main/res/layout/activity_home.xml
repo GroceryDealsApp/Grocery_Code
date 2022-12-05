@@ -122,14 +122,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/buttonSavedCarts"
         app:layout_constraintEnd_toEndOf="@+id/buttonSavedCarts"
-        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="@+id/buttonSavedCarts" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="User"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/buttonUser"
         app:layout_constraintEnd_toEndOf="@+id/buttonUser"
