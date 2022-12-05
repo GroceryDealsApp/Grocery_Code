@@ -81,6 +81,7 @@ public class SaveCartQuestion extends Fragment {
         NoBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Global.RecentCarts.add(new SavedStoreCarts(Global.newcart_items)); //save the cart to recent
                 Global.newcart_items = new ArrayList<>(); //clear user cart
                 Intent intent = new Intent(view.getContext().getApplicationContext(), ActivityHome.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -92,6 +93,7 @@ public class SaveCartQuestion extends Fragment {
         YesBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Global.RecentCarts.add(new SavedStoreCarts(Global.newcart_items)); //save the cart to recent
                 Global.SavedCarts.add(new SavedStoreCarts(Global.newcart_items)); //save the cart
                 Global.newcart_items = new ArrayList<>(); //clear user cart
                 Intent intent = new Intent(view.getContext().getApplicationContext(), ActivityHome.class);

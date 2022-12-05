@@ -155,14 +155,17 @@ public class CalculatedCart extends AppCompatActivity {
         setResult(RESULT_OK, intent);
         finish();
     }
+    //below methods don't run, use fragment onclicklisteners
     public void onYesClick(View view) {
         Global.SavedCarts.add(new SavedStoreCarts(Global.newcart_items)); //save the cart
+        Global.RecentCarts.add(new SavedStoreCarts(Global.newcart_items)); //save the cart to recent
         Intent intent = new Intent(getApplicationContext(), ActivityHome.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
     public void onNoClick(View view) {
+        Global.RecentCarts.add(new SavedStoreCarts(Global.newcart_items)); //save the cart to recent
         Intent intent = new Intent(getApplicationContext(), ActivityHome.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
