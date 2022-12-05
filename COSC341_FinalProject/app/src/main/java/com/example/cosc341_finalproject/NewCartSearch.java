@@ -31,7 +31,7 @@ public class NewCartSearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_cart_search);
         EditText NewCartSearch = (EditText) findViewById(R.id.NewCartSearch);
-       // List<Product> pp = Product.getAllProducts(Global.products);
+        List<Product> pp = Product.getProductsByFullName("");
         NewCartSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -45,7 +45,7 @@ public class NewCartSearch extends AppCompatActivity {
             }
         });
         cards = findViewById(R.id.cards);
-        //updateCards();
+        updateCards();
 
     }
 

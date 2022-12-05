@@ -85,10 +85,15 @@ public class SavedCarts extends AppCompatActivity {
                 public void onClick(View v) {
                     if (startCartButt.isEnabled()) { //if editing
                         startCartButt.setEnabled(false);
+                        deleteButt.setEnabled(false);
+                        deleteButt.setImageAlpha(100);
+
                         editnamebutt.setText("Done");
                         cartNameText.setEnabled(true);
                     } else { //if done editing
                         startCartButt.setEnabled(true);
+                        deleteButt.setEnabled(true);
+                        deleteButt.setImageAlpha(255);
                         cartNameText.setEnabled(false);
                         Global.SavedCarts.get(finalI).setName(cartNameText.getText().toString());
                         editnamebutt.setText("Edit Name");
