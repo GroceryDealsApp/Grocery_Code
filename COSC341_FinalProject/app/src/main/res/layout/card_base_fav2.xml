@@ -131,7 +131,7 @@
             android:layout_toEndOf="@+id/seeStoresButton"
             android:backgroundTint="#93180F"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/delete" />
+            app:srcCompat="@drawable/user" />
 
 
     </RelativeLayout>
