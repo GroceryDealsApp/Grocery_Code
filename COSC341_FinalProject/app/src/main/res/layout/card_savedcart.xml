@@ -60,7 +60,7 @@
             android:backgroundTint="#93180F"
             android:scaleType="centerInside"
             android:visibility="visible"
-            app:srcCompat="@drawable/delete" />
+            app:srcCompat="@drawable/bus" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

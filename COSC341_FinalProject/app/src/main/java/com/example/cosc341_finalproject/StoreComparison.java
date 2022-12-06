@@ -22,6 +22,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cosc341_finalproject.maps.MapActivity;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -141,6 +143,11 @@ public class StoreComparison extends AppCompatActivity implements AdapterView.On
                 mapButt.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         //TODO: open map of route to store from campus
+                        Intent mapIntent = new Intent(StoreComparison.this, MapActivity.class);
+                        mapIntent.putExtra("Lat", 49.886189);  //Pass store latitude
+                        mapIntent.putExtra("Lng", -119.425240);   //Pass store longitude
+                        mapIntent.putExtra("mode", "driving");
+                        startActivity(mapIntent);
                     }
                 });
 
